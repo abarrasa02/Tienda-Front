@@ -2,7 +2,7 @@ import { Usuarios } from "./usuarios";
 
 export class Pedidos {
     id: number;
-    usuariosId: number;
+    usuarioId: number;
     fecha: string;
 
 }
