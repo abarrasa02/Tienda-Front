@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Productos } from '../Classes/productos';
+import { Usuarios } from '../Classes/usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class UsuariosService {
 
   private usuariosUrl: string;
+  productoUrl: any;
   constructor(private http: HttpClient) {
     this.usuariosUrl = 'http://localhost:8080/usuarios'
    }

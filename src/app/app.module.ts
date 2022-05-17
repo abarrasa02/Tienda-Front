@@ -8,6 +8,8 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 import { CategoriasComponent } from './Components/categorias/categorias.component';
 import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { DetallePedidosComponent } from './Components/detalle-pedidos/detalle-pedidos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DetallePedidosComponent } from './Components/detalle-pedidos/detalle-pe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

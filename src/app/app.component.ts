@@ -16,5 +16,11 @@ export class AppComponent {
       this.categoriaService.findAll().subscribe(data => {
         this.categoria = data;
       });
-    };
+};
+ngOnInit(): void {
+  this.router.events.subscribe(value => {
+    this.getAutors();
+  })
+ 
+}
 }

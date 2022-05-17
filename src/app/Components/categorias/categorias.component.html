@@ -1,3 +1,6 @@
-<div *ngFor = "let categoria of categorias" >
-    <p>{{categoria.nombre}}</p>
+
+<div  *ngFor="let categoria of categorias">
+    <p>{{categoria?.nombre}}</p>
+    <p>{{categoria?.descripcion}}</p>
+    <p>{{categoria?.imagen}}</p>
 </div>

@@ -1,1 +1,7 @@
-<p>pedidos works!</p>
+
+
+<div *ngFor="let pedido of pedidos">
+    <p>ID:{{pedido?.id}}</p>
+    <p>Fecha:{{pedido?.fecha}}</p>
+    <p>{{pedido?.usuariosId}}</p>
+</div>

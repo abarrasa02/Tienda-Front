@@ -11,7 +11,7 @@ export class CategoriasService {
   private categoriasUrl: string;
 
   constructor(private http: HttpClient) {
-    this.categoriasUrl = 'http://localhost:8080/categorias'
+    this.categoriasUrl = 'http://localhost:8080/categoria'
    }
    public findAll(): Observable<Categorias[]>{
 
