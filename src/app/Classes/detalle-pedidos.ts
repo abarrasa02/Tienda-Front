@@ -4,7 +4,7 @@ import { Productos } from "./productos";
 export class DetallePedidos {
     id: number;
     pedidos: Pedidos;
-    productos: Productos;
+    productos: number;
     cantidad: number;
     precioUnidad: number;
 }
