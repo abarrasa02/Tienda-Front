@@ -1,1 +1,8 @@
-<p>productos works!</p>
+
+<div  *ngFor="let producto of productos">
+    <p>Nombre:{{producto?.nombre}}</p>
+    <p>Descripcion:{{producto?.descripcion}}</p>
+    <p>Categoria:{{producto?.categoriasid}}</p>
+    <p>Precio:{{producto?.precio}}</p>
+    <p>Rebaja:{{producto?.rebaja}}</p>
+</div>

@@ -1,1 +1,10 @@
-<p>usuarios works!</p>
+
+<div  *ngFor="let usuario of usuarios">
+    <p>Nombre:{{usuario?.nombre}}</p>
+    <p>Apellido:{{usuario?.apellido}}</p>
+    <p>Apellido2:{{usuario?.apellido2}}</p>
+    <p>Ciudad:{{usuario?.ciudad}}</p>
+    <p>Email:{{usuario?.email}}</p>
+    <p>Direccion:{{usuario?.lineaDirreccion}}</p>
+    <p>Pais:{{usuario?.pais}}</p>
+</div>

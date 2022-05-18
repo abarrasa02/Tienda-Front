@@ -1,1 +1,7 @@
-<p>detalle-pedidos works!</p>
+<div  *ngFor="let DetallePedidos of detallePedidos">
+    <p>ID:{{DetallePedidos?.id}}</p>
+    <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
+    <p>Cantidad:{{DetallePedidos?.cantidad}}</p>
+    <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
+    <p>ProductosId:{{DetallePedidos?.productosId}}</p>
+</div>

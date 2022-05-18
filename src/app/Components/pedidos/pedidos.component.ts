@@ -12,13 +12,13 @@ import { UsuariosService } from 'src/app/Service/usuarios.service';
 })
 export class PedidosComponent implements OnInit {
   pedidos: Pedidos[];
-  usuarios:Usuarios[];
 
-  constructor( private pedidosService: PedidosService,private usuariosService:UsuariosService) { }
+
+  constructor( private pedidosService: PedidosService) { }
 
   ngOnInit(): void {
     this.getPedidos();
-    this.getUsuarios();
+   
   }
   public getPedidos(): void {
       this.pedidosService.findAll().subscribe(
@@ -31,16 +31,6 @@ export class PedidosComponent implements OnInit {
         }
       );
     }
-    public getUsuarios(): void {
-      this.usuariosService.findAll().subscribe(
-        (response: Usuarios[]) => {
-          this.usuarios = response;
-          console.log(this.usuarios);
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
-    }
+ 
 
 }

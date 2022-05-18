@@ -6,5 +6,5 @@ export class Productos {
     descripcion: string;
     precio: number;
     rebaja: number;
-    categoria: Categorias;
+    categoriasid: number;
 }
