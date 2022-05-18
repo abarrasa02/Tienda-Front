@@ -1,13 +1,27 @@
 
-    <header>
-		<nav class="navegacion">
-			<ul class="menu">
-				<li><a href="/categoria/all">Categorias</a></li>
-				<li><a href="/detallePedidos/all">DetallePedidos</a></li>
-				<li><a href="/pedidos/all">Pedidos</a></li>
+	<header id="header">
+		<div class="main-container">
+		<nav class="navbar">
+			<div class="content">
+			  <div class="logo">
+				<a href="/productos/all">Tienda PC</a>
+			  </div>
+			  <ul class="menu-list">
+				<div class="icon cancel-btn">
+				  <i class="fas fa-times"></i>
+				</div>
 				<li><a href="/productos/all">Productos</a></li>
+				<li><a href="/categoria/all">Categorias</a></li>
+				<li><a href="/pedidos/all">Pedidos</a></li>
+				<li><a href="/detallePedidos/all">DetallePedidos</a></li>
 				<li><a href="/usuarios/all">Usuarios</a></li>
-			</ul>
-		</nav>
+			  </ul>
+			  <div class="icon menu-btn">
+				<i class="fas fa-bars"></i>
+			  </div>
+			</div>
+		  </nav>
+		  <router-outlet></router-outlet>
+		</div>
 	</header>
-<router-outlet></router-outlet>
+

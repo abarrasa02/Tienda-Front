@@ -12,15 +12,5 @@ export class AppComponent {
   categoria: Categorias[];
 
   constructor(private router: Router, private categoriaService: CategoriasService){}
-    getAutors(){
-      this.categoriaService.findAll().subscribe(data => {
-        this.categoria = data;
-      });
-};
-ngOnInit(): void {
-  this.router.events.subscribe(value => {
-    this.getAutors();
-  })
- 
-}
+    
 }
