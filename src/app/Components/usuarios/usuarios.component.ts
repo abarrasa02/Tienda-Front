@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/Service/usuarios.service';
 import { Usuarios } from 'src/app/Classes/usuarios';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,6 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class UsuariosComponent implements OnInit {
   usuarios:Usuarios[];
+  updateUsuarios:Usuarios;
+  deleteUsuarios:Usuarios;
   constructor(private usuariosService:UsuariosService) { }
 
   ngOnInit(): void {
@@ -25,5 +28,64 @@ export class UsuariosComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+  public AddUsuarios(addForm: NgForm): void {
+    document.getElementById('add-Usuarios-form')?.click();
+    this.usuariosService.addUsuarios(addForm.value).subscribe(
+      (response: Usuarios) => {
+        console.log(response);
+        this.getUsuarios();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    );
+  }
+
+  public onUpdateUsuarios(usuarios: Usuarios): void {
+    console.log('Usuariosedit', usuarios);
+    
+     this.usuariosService.updateUsuarios(usuarios).subscribe(
+       (response: Usuarios) => {
+       console.log(response);
+       this.getUsuarios();
+      },
+       (error: HttpErrorResponse) => {
+         alert(error.message);
+       }
+     );
+  }
+  public onDeleteUsuarios(usuarioId: number): void {
+    this.usuariosService.deleteUsuarios(usuarioId).subscribe(
+      (response: Usuarios) => {
+        console.log(response);
+        this.getUsuarios();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  public onOpenModal(usuarios: Usuarios, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addUsuariosModal');
+    }
+    if (mode === 'edit') {
+      this.updateUsuarios = usuarios;
+      button.setAttribute('data-target', '#updateUsuariosModal');
+    }
+    if (mode === 'delete') {
+      this.deleteUsuarios = usuarios;
+      button.setAttribute('data-target', '#deleteUsuariosModal');
+    }
+    container!.appendChild(button);
+    button.click();
   }
 }

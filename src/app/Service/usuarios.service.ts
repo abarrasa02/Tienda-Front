@@ -40,9 +40,9 @@ export class UsuariosService {
 
   }
 
-  public deleteUsuarios(id: number): Observable<Productos>{
+  public deleteUsuarios(id: number): Observable<Usuarios>{
 
-    return this.http.delete<Productos>(`${this.productoUrl}/delete/${id}`)
+    return this.http.delete<Usuarios>(`${this.productoUrl}/delete/${id}`)
 
   }
 }
