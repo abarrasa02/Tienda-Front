@@ -6,5 +6,5 @@ export class Usuarios {
     email: string;
     ciudad: string;
     pais: string;
-    lineaDirreccion: string;
+    lineadireccion1: string;
 }

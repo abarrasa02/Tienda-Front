@@ -13,8 +13,13 @@ export class ProductosComponent implements OnInit {
   constructor(private productosService:ProductosService) { }
 
   ngOnInit(): void {
-    this.getProductos();
+    this.getProductos()
   }
+  public precioRebajado(precio: number, rebaja: number){
+  const precioFinal = precio - precio*(rebaja/100)
+  return precioFinal.toFixed(2);
+  }
+  
   public getProductos(): void {
     this.productosService.findAll().subscribe(
       (response: Productos[]) => {
