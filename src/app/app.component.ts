@@ -19,11 +19,16 @@ export class AppComponent {
 @HostListener('window:scroll', ['$event'])
 
 public onWindowScroll() {
+    let css = '.menu-list li a:hover{ color: #ffffff; }';
     let element = document.querySelector('.navbar') as HTMLElement;
+    let style = document.createElement('style');
+    style.style.cssText = css;
+    element.classList.remove('HoverClass2', 'HoverClass1')
     if (window.pageYOffset > element.clientHeight) {
-      element.style.backgroundColor = 'red';
+      element.style.backgroundColor = '#2196f3';
     } else {
-      element.style.backgroundColor = 'white';
+      element.style.backgroundColor = 'transparent';
+
     }
   }
 }

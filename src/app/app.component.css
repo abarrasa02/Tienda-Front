@@ -22,8 +22,16 @@
 .main-container{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
-
+.HoverClass1:hover{
+  color: #2196f3;
+}
+.HoverClass2:hover{
+  color: #ffffff;
+}
 .content{
   max-width: 1250px;
   margin: auto;
@@ -68,9 +76,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
 }
-.menu-list li a:hover{
-  color: #007bff;
-}
+
 .banner{
   height: 100vh;
   background-size: cover;
