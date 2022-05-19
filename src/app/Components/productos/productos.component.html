@@ -1,6 +1,8 @@
 <div class="container">
     <div class="card" *ngFor="let producto of productos">
       <div class="box">
+        <div>
+            <img src="https://thumb.pccomponentes.com/w-220-220/articles/13/132145/dpp-2640.jpg" alt="">
         <div class="content">
           <h3>{{producto.nombre}}</h3>
           <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
@@ -10,4 +12,16 @@
         </div>
       </div>
     </div>
+    </div>
+    <div class="card" *ngFor="let producto of productos">
+        <div class="box">
+          <div class="content">
+            <h3>{{producto.nombre}}</h3>
+            <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
+              <span><del>{{producto.precio}}</del></span>
+              <span id="rebaja">{{producto.rebaja}}%</span></p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+      </div>
   </div>
