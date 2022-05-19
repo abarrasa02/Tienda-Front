@@ -14,11 +14,14 @@ export class CategoriasComponent implements OnInit {
   categorias: Categorias[];
   updatecategoria:Categorias;
   deletecategoria:Categorias;
+
   constructor( private categoriasService: CategoriasService) { }
 
   ngOnInit(): void {
     this.getCategorias();
     }
+
+
   
 
     public getCategorias(): void {

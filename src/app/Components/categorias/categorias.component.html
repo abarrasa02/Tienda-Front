@@ -1,6 +1,54 @@
 
-<div  *ngFor="let categoria of categorias">
-    <p>Nombre:{{categoria?.nombre}}</p>
-    <p>Descripcion:{{categoria?.descripcion}}</p>
-    <p>Imagen:{{categoria?.imagen}}</p>
-</div>
+
+    <div>
+    <button onclick="onOpenModal(null,'add')">Añadir</button>
+    
+        <div  *ngFor="let categoria of categorias">
+            <p>Nombre:{{categoria?.nombre}}</p>
+            <p>Descripcion:{{categoria?.descripcion}}</p>
+            <p>Imagen:{{categoria?.imagen}}</p>
+        </div>
+        
+        </div>
+        <div class="'modal position-fixed'" id="addCategoriaModal" tabindex="-1" role="dialog"
+        ariaLabelledBy="addCategoriaModalLabel" ariaHidden="false">
+        <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
+            <label for="descripcion">Descripcion</label>
+            <input ngModel name="descripcion" class="w-full " id="descripcion" placeholder="descripcion" required>
+   
+   
+            <label for="nombre">Nombre</label>
+            <input ngModel name="nombre" class=" w-full " id="nombre" placeholder="Name" >
+           
+   
+   
+            <label for="imagen">Imagen</label>
+            <input ngModel name="imagen" class=" w-full " id="imagen" placeholder="Imagen">
+               
+
+            <div class="flex flex-wrap gap-sm w-full justify-between">
+               <div class="mt-sm ">
+                  <button id="add-Categoria-form" class=" c-button--alert" data-dismiss="modal">
+                     Close
+                  </button>
+               </div>
+               <div class="mt-sm ">
+                  <button  type="submit" class=" c-button--primary ">
+                     Añadir
+                  </button>
+               </div>
+            </div>
+         </form>
+        </div>
+     
+
+
+
+
+
+
+
+
+
+        
+        
