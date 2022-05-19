@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Categorias } from 'src/app/Classes/categorias';
 import { CategoriasService } from 'src/app/Service/categorias.service';
 
@@ -9,6 +10,7 @@ import { CategoriasService } from 'src/app/Service/categorias.service';
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
   styleUrls: ['./categorias.component.css']
+  
 })
 export class CategoriasComponent implements OnInit {
   categorias: Categorias[];
@@ -19,6 +21,7 @@ export class CategoriasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategorias();
+
     }
 
 
@@ -95,6 +98,7 @@ export class CategoriasComponent implements OnInit {
       container!.appendChild(button);
       button.click();
     }
+ 
   }
 
 

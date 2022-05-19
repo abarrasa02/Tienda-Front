@@ -38,8 +38,9 @@ img{
   height: 300px;
   border-radius: 15px;
   margin: 0px;
+  border: none;
   transition: 0.5s;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 .content{
   display: flex;
@@ -58,12 +59,14 @@ img{
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  transition: 2s;
+  transition: .5s;
 }
 
 .container .card .box:hover {
-  height: 350px;
-  border: 1px black solid;
+  box-shadow: 3px 2px 2px rgb(189, 189, 189);
+  margin-top: -20px;
+  height: 300px;
+  border: 1px rgb(184, 184, 184) solid;
 }
 
 .container .card .box:before {
