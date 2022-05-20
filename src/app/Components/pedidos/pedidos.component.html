@@ -5,7 +5,7 @@
     <p>Fecha:{{pedido?.fecha}}</p>
     <p>usuariosId: {{pedido?.usuarioId}}</p>
     <button (click)="abrir(pedido,'eliminar')">Eliminar</button>
-    <button (click)="abrir(pedido,'Editar')">Editar</button>
+    <button (click)="abrir(pedido,'update')">Editar</button>
 </div>
 <div class="w3-container">
    
@@ -73,4 +73,38 @@
         </div>
     </div>
 </div>
+<div id="id03" class="modal">
+    <div class="modal-body" *ngIf="updatePedidos">
+      <div class="modal-head">
+        <h2>Pedidos</h2>
+      </div>
+      <div class="modal-body-content">
+        <span (click)="cerrar('update')"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #editForm="ngForm">
+          <div class="form">
+            <input type="text" ngModel name="fecha" id="fecha"
+              autocomplete="off" required [(ngModel)]="updatePedidos.fecha"/>
+            <label for="fecha" class="label-name">
+              <span class="content-name">Fecha</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="usuarioId" id="usuarioId"
+              autocomplete="off" required [(ngModel)]="updatePedidos.usuarioId"/>
+            <label for="usuarioId" class="label-name">
+              <span class="content-name">UsuarioId</span>
+            </label>
+          </div>
+          <div>
+            <span (click)="cerrar('update')" class="span">Cerrar</span>
+            <button type="submit" class="span"
+              (click)="onUpdatePedidos(updatePedidos); cerrar('update');">
+              Añadir
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   
