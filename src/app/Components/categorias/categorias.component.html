@@ -10,29 +10,30 @@
    
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
   
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
+    <div id="id01" class="modal">
+      <div class="modal-body">
+        <div class="modal-head">
+            <h2>Categorias</h2>
+        </div>
+        <div class="modal-body-content">
           <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
           <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
-            <div>
-              <label>Descripcion</label>
-              <input type="text" ngModel name="descripcion"  id="descripcion" placeholder="descripcion" >
+            <div class="form">
+              <input type="text" ngModel name="nombre" id="nombre" autocomplete="off" required />
+              <label for="name" class="label-name">
+                  <span class="content-name">Nombre</span>
+              </label>
             </div>
-            <div>
-              <label>nombre</label>
-              <input type="text" ngModel name="nombre"  id="nombre" placeholder="nombre" >
-              </div>
-              <div>
-              <label>Imagen</label>
-              <input type="text" ngModel name="imagen" id="imagen" placeholder="imagen" >
-              </div>
+            <div class="form">
+              <input type="text" ngModel name="descripcion" id="descripcion" autocomplete="off" required />
+              <label for="name" class="label-name">
+                  <span class="content-name">Descripcion</span>
+              </label>
+            </div>
               <div >
                 <div class="mt-sm ">
-                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display" >Close</span>
-                </div>
-                <div class="mt-sm ">
-                   <button [disabled]="addForm.invalid" type="submit">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="span">Cerrar</span>
+                   <button [disabled]="addForm.invalid" type="submit" class="span" onclick="document.getElementById('id01').style.display='none'">
                       Añadir
                    </button>
                 </div>
