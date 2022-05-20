@@ -4,37 +4,73 @@
     <p>ID:{{pedido?.id}}</p>
     <p>Fecha:{{pedido?.fecha}}</p>
     <p>usuariosId: {{pedido?.usuarioId}}</p>
+    <button (click)="abrir(pedido,'eliminar')">Eliminar</button>
+    <button (click)="abrir(pedido,'Editar')">Editar</button>
 </div>
 <div class="w3-container">
    
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
-  
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-          <form #addForm="ngForm" (ngSubmit)="AddPedidos(addForm)">
-            <div>
-              <label>Fecha</label>
-              <input type="text" ngModel name="fecha"  id="fecha" placeholder="fecha" >
-            </div>
-            <div>
-              <label>UsuarioId</label>
-              <input type="text" ngModel name="usuarioId"  id="usuarioId" placeholder="usuarioId" >
-              </div>
-              <div>
-            
-                <div class="mt-sm ">
-                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display" >Close</span>
-                </div>
-                <div class="mt-sm ">
-                   <button [disabled]="addForm.invalid" type="submit">
-                      Añadir
-                   </button>
-                </div>
-             </div>
-          </form>
-        </div>
+   
+    <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
+  <div id="id01" class="modal">
+    <div class="modal-body">
+      <div class="modal-head">
+        <h2>Pedidos</h2>
+      </div>
+      <div class="modal-body-content">
+        <span (click)="cerrar('add')"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #addForm="ngForm" (ngSubmit)="AddPedidos(addForm)">
+          <div class="form">
+            <input type="text" ngModel name="fecha" id="fecha"
+              autocomplete="off" required />
+            <label for="fecha " class="label-name">
+              <span class="content-name">Fecha</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="cantidad" id="cantidad"
+              autocomplete="off" required />
+            <label for="cantidad " class="label-name">
+              <span class="content-name">Cantidad</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="usuarioId" id="usuarioId"
+              autocomplete="off" required />
+            <label for="usuarioId" class="label-name">
+              <span class="content-name">UsuarioId</span>
+            </label>
+          </div>
+          <div>
+            <span (click)="cerrar('add')" class="span">Cerrar</span>
+            <button [disabled]="addForm.invalid" type="submit" class="span"
+              (click)="cerrar('add')">
+              Añadir
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+ 
+</div>
+<div>
+    <div id="id02" class="modal">
+        <div class="modal-body" *ngIf="deletePedidos">
+            <div class="modal-head">
+                <h2>Pedidos</h2>
+            </div>
+            <div class="modal-body-content">
+                <span (click)="cerrar('eliminar')" class="w3-button w3-display-topright">&times;</span>
+                <h4>¿Estas seguro de que quieres eliminar la
+                    {{deletePedidos.id}}?</h4>
+                <span (click)="cerrar('eliminar')" class="span">No</span>
+                <button type="submit" class="span"
+                    (click)="cerrar('eliminar'); onDeletePedidos(deletePedidos.id)">
+                    Si
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+  

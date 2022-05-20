@@ -88,4 +88,28 @@ export class UsuariosComponent implements OnInit {
     container!.appendChild(button);
     button.click();
   }
+  public abrir(usuarios: Usuarios | null, mode: string){
+    if(mode == 'eliminar'){
+      document.getElementById('id02').style.display = 'block';
+      this.deleteUsuarios = usuarios;
+    }
+    if(mode == 'add'){
+      document.getElementById('id01').style.display = 'block';
+    }
+    if(mode == 'update'){
+      document.getElementById('id03').style.display = 'block';
+      this.updateUsuarios = usuarios;
+    }
+  }
+  public cerrar(mode: string){
+    if(mode == 'eliminar'){
+    document.getElementById('id02').style.display = 'none';
+  }
+  if(mode == 'add'){
+    document.getElementById('id01').style.display = 'none';
+  }
+  if(mode == 'update'){
+    document.getElementById('id03').style.display = 'none';
+  }
+}
 }

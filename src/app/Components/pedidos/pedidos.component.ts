@@ -90,4 +90,28 @@ export class PedidosComponent implements OnInit {
       container!.appendChild(button);
       button.click();
     }
+    public abrir(pedidos: Pedidos | null, mode: string){
+      if(mode == 'eliminar'){
+        document.getElementById('id02').style.display = 'block';
+        this.deletePedidos = pedidos;
+      }
+      if(mode == 'add'){
+        document.getElementById('id01').style.display = 'block';
+      }
+      if(mode == 'update'){
+        document.getElementById('id03').style.display = 'block';
+        this.updatePedidos = pedidos;
+      }
+    }
+    public cerrar(mode: string){
+      if(mode == 'eliminar'){
+      document.getElementById('id02').style.display = 'none';
+    }
+    if(mode == 'add'){
+      document.getElementById('id01').style.display = 'none';
+    }
+    if(mode == 'update'){
+      document.getElementById('id03').style.display = 'none';
+    }
+  }
 }

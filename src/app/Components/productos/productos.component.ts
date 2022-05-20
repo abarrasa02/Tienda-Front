@@ -93,4 +93,28 @@ export class ProductosComponent implements OnInit {
     container!.appendChild(button);
     button.click();
   }
+  public abrir(productos: Productos | null, mode: string){
+    if(mode == 'eliminar'){
+      document.getElementById('id02').style.display = 'block';
+      this.deleteProductos = productos;
+    }
+    if(mode == 'add'){
+      document.getElementById('id01').style.display = 'block';
+    }
+    if(mode == 'update'){
+      document.getElementById('id03').style.display = 'block';
+      this.updateProductos = productos;
+    }
+  }
+  public cerrar(mode: string){
+    if(mode == 'eliminar'){
+    document.getElementById('id02').style.display = 'none';
+  }
+  if(mode == 'add'){
+    document.getElementById('id01').style.display = 'none';
+  }
+  if(mode == 'update'){
+    document.getElementById('id03').style.display = 'none';
+  }
+}
 }
