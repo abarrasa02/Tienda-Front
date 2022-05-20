@@ -1,14 +1,13 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div id="main-container">
+  <button (click)="abrir(null,'add')" class="span">Añadir</button>
   <div *ngFor="let categoria of categorias">
-
-    <p>nombre:{{categoria?.nombre}}</p>
-    <p>Descripcion:{{categoria?.descripcion}}</p>
-    <p>Imagen:{{categoria?.imagen}}</p>
+    <p>nombre: {{categoria?.nombre}}</p>
+    <p>Descripcion: {{categoria?.descripcion}}</p>
+    <p>Imagen: {{categoria?.imagen}}</p>
     <button (click)="abrir(categoria, 'eliminar')">Eliminar</button>
     <button (click)="abrir(categoria, 'update')">Editar</button>
   </div>
-  <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
   <div id="id01" class="modal">
     <div class="modal-body">
       <div class="modal-head">
@@ -64,33 +63,34 @@
       </div>
     </div>
   </div>
-  <div id="id01" class="modal">
-    <div class="modal-body">
+
+  <div id="id03" class="modal">
+    <div class="modal-body" *ngIf="updatecategoria">
       <div class="modal-head">
         <h2>Categorias</h2>
       </div>
       <div class="modal-body-content">
-        <span (click)="cerrar('add')"
+        <span (click)="cerrar('update')"
           class="w3-button w3-display-topright">&times;</span>
-        <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
+        <form #editForm="ngForm">
           <div class="form">
             <input type="text" ngModel name="nombre" id="nombre"
-              autocomplete="off" required />
+              autocomplete="off" required [(ngModel)]="updatecategoria.nombre"/>
             <label for="name" class="label-name">
-              <span class="content-name">Nombre</span>
+              <span class="content-name">{{updatecategoria.nombre}}</span>
             </label>
           </div>
           <div class="form">
             <input type="text" ngModel name="descripcion" id="descripcion"
-              autocomplete="off" required />
+              autocomplete="off" required [(ngModel)]="updatecategoria.descripcion"/>
             <label for="name" class="label-name">
-              <span class="content-name">Descripcion</span>
+              <span class="content-name">{{updatecategoria.descripcion}}</span>
             </label>
           </div>
           <div>
-            <span (click)="cerrar('add')" class="span">Cerrar</span>
-            <button [disabled]="addForm.invalid" type="submit" class="span"
-              (click)="cerrar('add')">
+            <span (click)="cerrar('update')" class="span">Cerrar</span>
+            <button type="submit" class="span"
+              (click)="onUpdateCategoria(); cerrar('update');">
               Añadir
             </button>
           </div>
