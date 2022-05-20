@@ -4,149 +4,56 @@
   <p>nombre:{{categoria?.nombre}}</p>
   <p>Descripcion:{{categoria?.descripcion}}</p>
   <p>Imagen:{{categoria?.imagen}}</p>
-  <button (click)="onOpenModal(categoria, 'delete')">Eliminar</button>
+  <button (click)="abrir(categoria)">Eliminar</button>
 </div>
-<<<<<<< HEAD
-<div class="w3-container">
-
-
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
-
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content">
-      <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'"
-          class="w3-button w3-display-topright">&times;</span>
-        <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
-          <div>
-            <label>Descripcion</label>
-            <input type="text" ngModel name="descripcion" id="descripcion" placeholder="descripcion">
-          </div>
-          <div>
-            <label>nombre</label>
-            <input type="text" ngModel name="nombre" id="nombre" placeholder="nombre">
-          </div>
-          <div>
-            <label>Imagen</label>
-            <input type="text" ngModel name="imagen" id="imagen" placeholder="imagen">
-          </div>
-          <div>
-            <div class="mt-sm ">
-              <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display">Close</span>
-=======
-    <button onclick="document.getElementById('id01').style.display='block'"
-      class="w3-button w3-black">Open Modal</button>
-    <div id="id01" class="modal">
-      <div class="modal-body">
-        <div class="modal-head">
-          <h2>Categorias</h2>
-        </div>
-        <div class="modal-body-content">
-          <span onclick="document.getElementById('id01').style.display='none'"
-            class="w3-button w3-display-topright">&times;</span>
-          <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
-            <div class="form">
-              <input type="text" ngModel name="nombre" id="nombre"
-                autocomplete="off" required />
-              <label for="name" class="label-name">
-                <span class="content-name">Nombre</span>
-              </label>
->>>>>>> 57e4f349232083f4d62aebe9ea64b0e57733fbf9
-            </div>
-            <div class="form">
-              <input type="text" ngModel name="descripcion" id="descripcion"
-                autocomplete="off" required />
-              <label for="name" class="label-name">
-                <span class="content-name">Descripcion</span>
-              </label>
-            </div>
-            <div>
-              <span
-                onclick="document.getElementById('id01').style.display='none'"
-                class="span">Cerrar</span>
-              <button [disabled]="addForm.invalid" type="submit" class="span"
-                onclick="document.getElementById('id01').style.display='none'">
-                Añadir
-              </button>
-            </div>
-<<<<<<< HEAD
-          </div>
-        </form>
-        
-=======
-          </form>
-        </div>
-      </div>
+<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+<div id="id01" class="modal">
+  <div class="modal-body">
+    <div class="modal-head">
+      <h2>Categorias</h2>
     </div>
-    <div class="modal fade" id="deleteCategoriaModal" tabindex="-1"
-      role="dialog" aria-labelledby="deleteModelLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div id="icon-type-A-example"
-            class="relative max-w-lg p-base lg:p-lg border border-neutral-base
-            rounded bg-white">
-            <div class="flex justify-center p-base">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"
-                width="1em" height="1em"
-                class="block w-16 h-16 text-alert-light" focusable="false"
-                aria-hidden="true" role="presentation">
-                <g fill="none" stroke="currentColor" stroke-linecap="round"
-                  stroke-linejoin="round" stroke-width="1.5">
-                  <path
-                    d="M100.625 122.5h-61.25a8.75 8.75 0
-                    01-8.75-8.75V35h78.75v78.75a8.75 8.75 0 01-8.75 8.75zM56.875
-                    96.25v-35M83.125 96.25v-35M13.125 35h113.75M83.125
-                    17.5h-26.25a8.75 8.75 0 00-8.75 8.75V35h43.75v-8.75a8.75
-                    8.75 0 00-8.75-8.75z"
-                    stroke-width="8.749995" />
-                  </g>
-                </svg>
-              </div>
-              <h2 id="label-icon-type-A-example" class="c-h2 px-base text-center
-                focus:outline-none focus:underline"
-                tabindex="-1">Borrar
-                Categoria</h2>
-              <p class="c-p my-base text-center">
-                Estas seguro de borrar esta Categoria-->
-                {{deletecategoria?.nombre}}
-              </p>
-              <div class="flex flex-wrap gap-sm w-full justify-between">
-                <div class="mt-sm">
-                  <button class="c-button c-button--primary"
-                    data-dismiss="modal">
-                    Cancelar <span class="sr-only">y cerrar la ventana modal</span>
-                  </button>
-                </div>
-                <div class="mt-sm">
-                  <button (click)="onDeleteCategoria(deletecategoria.id)"
-                    class="'c-button c-button--alert'"
-                    data-dismiss="modal">
-                    Si, borrar Categoria
-                  </button>
-                </div>
-              </div>
-              <div class="absolute top-0 right-0 p-sm lg:p-base">
-                <button data-dismiss="modal"
-                  class="'p-sm focus:bg-warning-base focus:border-warning-base
-                  focus:shadow-outline-black focus:text-black
-                  focus:outline-none'"
-                  aria-label="X: Cerrar la ventana emergente">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"
-                    width="1em" height="1em" class="w-4 h-4"
-                    aria-hidden="true" role="presentation">
-                    <path
-                      d="M85.91 71.77a2.5 2.5 0 010-3.54l46.16-46.16a10 10 0
-                      10-14.14-14.14L71.77 54.09a2.5 2.5 0 01-3.54 0L22.07
-                      7.93A10 10 0 007.93 22.07l46.16 46.16a2.5 2.5 0 010
-                      3.54L7.93 117.93a10 10 0 0014.14 14.14l46.16-46.16a2.5 2.5
-                      0 013.54 0l46.16 46.16a10 10 0 0014.14-14.14z"
-                      fill="currentColor" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
->>>>>>> 57e4f349232083f4d62aebe9ea64b0e57733fbf9
+    <div class="modal-body-content">
+      <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-display-topright">&times;</span>
+      <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
+        <div class="form">
+          <input type="text" ngModel name="nombre" id="nombre" autocomplete="off" required />
+          <label for="name" class="label-name">
+            <span class="content-name">Nombre</span>
+          </label>
+        </div>
+        <div class="form">
+          <input type="text" ngModel name="descripcion" id="descripcion" autocomplete="off" required />
+          <label for="name" class="label-name">
+            <span class="content-name">Descripcion</span>
+          </label>
+        </div>
+        <div>
+          <span onclick="document.getElementById('id01').style.display='none'" class="span">Cerrar</span>
+          <button [disabled]="addForm.invalid" type="submit" class="span"
+            onclick="document.getElementById('id01').style.display='none'">
+            Añadir
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="id02" class="modal" >
+  <div class="modal-body" *ngIf="deletecategoria">
+    <div class="modal-head">
+      <h2>Categorias</h2>
+    </div>
+    <div class="modal-body-content">
+      <span onclick="document.getElementById('id02').style.display='none'"
+        class="w3-button w3-display-topright">&times;</span>
+      <h4>Estas seguro de que quieres eliminar esta categoria {{deletecategoria.nombre}}</h4>
+      <span onclick="document.getElementById('id02').style.display='none'" class="span">Si</span>
+      <button  type="submit" class="span"
+        onclick="document.getElementById('id02').style.display='none'">
+        Si
+      </button>
+    </div>
+  </div>
+</div>

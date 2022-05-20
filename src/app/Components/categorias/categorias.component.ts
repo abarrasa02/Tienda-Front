@@ -98,7 +98,14 @@ export class CategoriasComponent implements OnInit {
       container!.appendChild(button);
       button.click();
     }
- 
+    public abrir(categoria: Categorias | null){
+      if(categoria){
+        document.getElementById('id02').style.display = 'block';
+        this.deletecategoria = categoria;
+      }else{
+        document.getElementById('id02').style.display = 'block';
+      }
+    }
   }
 
 
