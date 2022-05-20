@@ -12,12 +12,6 @@
   margin: 0;
   padding: 0;
 }
-.HoverClass1:hover{
-  color: #2196f3;
-}
-.HoverClass2:hover{
-  color: #ffffff;
-}
 .content{
   max-width: 1250px;
   margin: auto;
