@@ -1,14 +1,45 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div  *ngFor="let categoria of categorias">
+  
+  <p>nombre:{{categoria?.nombre}}</p>
+  <p>Descripcion:{{categoria?.descripcion}}</p>
+  <p>Imagen:{{categoria?.imagen}}</p>
+ 
+</div>
 <div class="w3-container">
-    <h2>W3.CSS Modal</h2>
+   
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
   
     <div id="id01" class="w3-modal">
       <div class="w3-modal-content">
         <div class="w3-container">
           <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-          <p>Some text. Some text. Some text.</p>
-          <p>Some text. Some text. Some text.</p>
+          <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
+            <div>
+              <label>Descripcion</label>
+              <input type="text" ngModel name="descripcion" class="w-full " id="descripcion" placeholder="descripcion" >
+            </div>
+            <div>
+              <label>nombre</label>
+              <input type="text" ngModel name="nombre" class="w-full " id="nombre" placeholder="nombre" >
+              </div>
+              <div>
+              <label>Imagen</label>
+              <input type="text" ngModel name="imagen" class="w-full " id="imagen" placeholder="imagen" >
+              </div>
+              <div >
+                <div class="mt-sm ">
+                   <span onclick="document.getElementById('id01').style.display='none'">
+                      Close
+                   </span>
+                </div>
+                <div class="mt-sm ">
+                   <button [disabled]="addForm.invalid" type="submit">
+                      Añadir
+                   </button>
+                </div>
+             </div>
+          </form>
         </div>
       </div>
     </div>

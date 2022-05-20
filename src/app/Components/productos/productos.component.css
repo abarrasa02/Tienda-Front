@@ -63,7 +63,7 @@ img{
 }
 
 .container .card .box:hover {
-  box-shadow: 3px 2px 2px rgb(189, 189, 189);
+  box-shadow: 10px 5px 5px rgb(189, 189, 189);
   margin-top: -20px;
   height: 300px;
   border: 1px rgb(184, 184, 184) solid;
