@@ -1,19 +1,31 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div *ngFor="let DetallePedidos of detallePedidos">
-    <p>ID:{{DetallePedidos?.id}}</p>
-    <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
-    <p>Cantidad:{{DetallePedidos?.cantidad}}</p>
-    <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
-    <p>ProductosId:{{DetallePedidos?.productosId}}</p>
-    <button (click)="abrir(DetallePedidos,'eliminar')">Eliminar</button>
-    <button (click)="abrir(DetallePedidos,'Editar')">Editar</button>
-
+<div>
+    <button (click)="abrir(null,'add')" class="span">Añadir</button>
+    <div class="table-section">
+        <table id="table">
+            <tr class="header-row">
+                <th class="header-item items">ID</th>
+                <th class="header-item items">Pedido ID</th>
+                <th class="header-item items">Cantidad</th>
+                <th class="header-item items">Precio por unidad</th>
+                <th class="header-item items">Producto ID</th>
+                <th class="header-item items">Acción/th>
+            </tr>
+            <tr class="table-rows" *ngFor="let DetallePedidos of detallePedidos">
+                <td class="items">{{DetallePedidos.id}}</td>
+                <td class="items">{{DetallePedidos?.pedidoId}}</td>
+                <td class="items icon">{{DetallePedidos?.cantidad}}</td>
+                <td class="items icon">{{DetallePedidos?.precioUnidad}}</td>
+                <td class="items icon">{{DetallePedidos?.productosId}}</td>
+                <td class="items">
+                  <button class="span" (click)="abrir(DetallePedidos, 'eliminar')">Eliminar</button>
+                  <button class="span" (click)="abrir(DetallePedidos, 'update')">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
-
-
 <div class="w3-container">
-
-    <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
     <div id="id01" class="modal">
         <div class="modal-body">
             <div class="modal-head">

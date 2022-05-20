@@ -1,12 +1,26 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div id="main-container">
   <button (click)="abrir(null,'add')" class="span">Añadir</button>
-  <div *ngFor="let categoria of categorias">
-    <p>nombre: {{categoria?.nombre}}</p>
-    <p>Descripcion: {{categoria?.descripcion}}</p>
-    <p>Imagen: {{categoria?.imagen}}</p>
-    <button (click)="abrir(categoria, 'eliminar')">Eliminar</button>
-    <button (click)="abrir(categoria, 'update')">Editar</button>
+  <div>
+    <div class="table-section">
+        <table id="table">
+            <tr class="header-row">
+                <th class="header-item items">ID</th>
+                <th class="header-item items">Nombre</th>
+                <th class="header-item items">Descripcion</th>
+                <th class="header-item items">Acción</th>
+            </tr>
+            <tr class="table-rows" *ngFor="let categoria of categorias">
+                <td class="items">{{categoria.id}}</td>
+                <td class="items">{{categoria?.nombre}}</td>
+                <td class="items icon">{{categoria?.descripcion}}</td>
+                <td class="items">
+                  <button class="span" (click)="abrir(categoria, 'eliminar')">Eliminar</button>
+                  <button class="span" (click)="abrir(categoria, 'update')">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
   </div>
   <div id="id01" class="modal">
     <div class="modal-body">
