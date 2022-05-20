@@ -1,59 +1,101 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div *ngFor="let categoria of categorias">
+<div id="main-container">
+  <div *ngFor="let categoria of categorias">
 
-  <p>nombre:{{categoria?.nombre}}</p>
-  <p>Descripcion:{{categoria?.descripcion}}</p>
-  <p>Imagen:{{categoria?.imagen}}</p>
-  <button (click)="abrir(categoria)">Eliminar</button>
-</div>
-<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
-<div id="id01" class="modal">
-  <div class="modal-body">
-    <div class="modal-head">
-      <h2>Categorias</h2>
-    </div>
-    <div class="modal-body-content">
-      <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-display-topright">&times;</span>
-      <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
-        <div class="form">
-          <input type="text" ngModel name="nombre" id="nombre" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Nombre</span>
-          </label>
-        </div>
-        <div class="form">
-          <input type="text" ngModel name="descripcion" id="descripcion" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Descripcion</span>
-          </label>
-        </div>
-        <div>
-          <span onclick="document.getElementById('id01').style.display='none'" class="span">Cerrar</span>
-          <button [disabled]="addForm.invalid" type="submit" class="span"
-            onclick="document.getElementById('id01').style.display='none'">
-            Añadir
-          </button>
-        </div>
-      </form>
+    <p>nombre:{{categoria?.nombre}}</p>
+    <p>Descripcion:{{categoria?.descripcion}}</p>
+    <p>Imagen:{{categoria?.imagen}}</p>
+    <button (click)="abrir(categoria, 'eliminar')">Eliminar</button>
+    <button (click)="abrir(categoria, 'update')">Editar</button>
+  </div>
+  <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
+  <div id="id01" class="modal">
+    <div class="modal-body">
+      <div class="modal-head">
+        <h2>Categorias</h2>
+      </div>
+      <div class="modal-body-content">
+        <span (click)="cerrar('add')"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
+          <div class="form">
+            <input type="text" ngModel name="nombre" id="nombre"
+              autocomplete="off" required />
+            <label for="name" class="label-name">
+              <span class="content-name">Nombre</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="descripcion" id="descripcion"
+              autocomplete="off" required />
+            <label for="name" class="label-name">
+              <span class="content-name">Descripcion</span>
+            </label>
+          </div>
+          <div>
+            <span (click)="cerrar('add')" class="span">Cerrar</span>
+            <button [disabled]="addForm.invalid" type="submit" class="span"
+              (click)="cerrar('add')">
+              Añadir
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="id02" class="modal" >
-  <div class="modal-body" *ngIf="deletecategoria">
-    <div class="modal-head">
-      <h2>Categorias</h2>
+  <div>
+    <div id="id02" class="modal">
+      <div class="modal-body" *ngIf="deletecategoria">
+        <div class="modal-head">
+          <h2>Categorias</h2>
+        </div>
+        <div class="modal-body-content">
+          <span (click)="cerrar('eliminar')"
+            class="w3-button w3-display-topright">&times;</span>
+          <h4>¿Estas seguro de que quieres eliminar la
+            {{deletecategoria.nombre}}?</h4>
+          <span (click)="cerrar('eliminar')" class="span">No</span>
+          <button type="submit" class="span"
+            (click)="cerrar('eliminar'); onDeleteCategoria(deletecategoria.id)">
+            Si
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="modal-body-content">
-      <span onclick="document.getElementById('id02').style.display='none'"
-        class="w3-button w3-display-topright">&times;</span>
-      <h4>Estas seguro de que quieres eliminar esta categoria {{deletecategoria.nombre}}</h4>
-      <span onclick="document.getElementById('id02').style.display='none'" class="span">Si</span>
-      <button  type="submit" class="span"
-        onclick="document.getElementById('id02').style.display='none'">
-        Si
-      </button>
+  </div>
+  <div id="id01" class="modal">
+    <div class="modal-body">
+      <div class="modal-head">
+        <h2>Categorias</h2>
+      </div>
+      <div class="modal-body-content">
+        <span (click)="cerrar('add')"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
+          <div class="form">
+            <input type="text" ngModel name="nombre" id="nombre"
+              autocomplete="off" required />
+            <label for="name" class="label-name">
+              <span class="content-name">Nombre</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="descripcion" id="descripcion"
+              autocomplete="off" required />
+            <label for="name" class="label-name">
+              <span class="content-name">Descripcion</span>
+            </label>
+          </div>
+          <div>
+            <span (click)="cerrar('add')" class="span">Cerrar</span>
+            <button [disabled]="addForm.invalid" type="submit" class="span"
+              (click)="cerrar('add')">
+              Añadir
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
