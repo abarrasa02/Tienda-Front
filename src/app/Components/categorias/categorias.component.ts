@@ -54,10 +54,8 @@ export class CategoriasComponent implements OnInit {
       );
     }
 
-    public onUpdateCategoria(categoria: Categorias): void {
-      console.log('categoriaedit', categoria);
-      
-       this.categoriasService.updateCategoria(categoria).subscribe(
+    public onUpdateCategoria(): void {
+       this.categoriasService.updateCategoria(this.updatecategoria).subscribe(
          (response: Categorias) => {
          console.log(response);
          this.getCategorias();
