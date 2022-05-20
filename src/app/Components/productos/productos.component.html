@@ -1,29 +1,81 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="container">
 
-    <div class="card" *ngFor="let producto of productos">
-      <div class="box">
-        <div>
-            <img src="https://thumb.pccomponentes.com/w-220-220/articles/13/132145/dpp-2640.jpg" alt="">
+  <div class="card" *ngFor="let producto of productos">
+    <div class="box">
+      <div>
+        <img src="https://thumb.pccomponentes.com/w-220-220/articles/13/132145/dpp-2640.jpg" alt="">
         <div class="content">
-          
+
           <h3>{{producto.nombre}}</h3>
           <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
             <span><del>{{producto.precio}}</del></span>
-            <span id="rebaja">{{producto.rebaja}}%</span></p>
+            <span id="rebaja">{{producto.rebaja}}%</span>
+          </p>
           <a href="#">Read More</a>
         </div>
       </div>
     </div>
-    </div>
-    <div class="card" *ngFor="let producto of productos">
-        <div class="box">
-          <div class="content">
-            <h3>{{producto.nombre}}</h3>
-            <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
-              <span><del>{{producto.precio}}</del></span>
-              <span id="rebaja">{{producto.rebaja}}%</span></p>
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
   </div>
+
+  <div class="card" *ngFor="let producto of productos">
+    <div class="box">
+      <div class="content">
+        <h3>{{producto.nombre}}</h3>
+        <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
+          <span><del>{{producto.precio}}</del></span>
+          <span id="rebaja">{{producto.rebaja}}%</span>
+        </p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container">
+
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #addForm="ngForm" (ngSubmit)="AddProductos(addForm)">
+          <div>
+            <label>Nombre</label>
+            <input type="text" ngModel name="nombre" id="nombre" placeholder="nombre">
+          </div>
+          <div>
+            <label>Descripcion</label>
+            <input type="text" ngModel name="descripcion" id="descripcion" placeholder="descripcion">
+          </div>
+          <div>
+            <label>Precio</label>
+            <input type="text" ngModel name="precio" id="precio" placeholder="precio">
+          </div>
+          <div>
+            <label>Rebaja</label>
+            <input type="text" ngModel name="rebaja" id="rebaja" placeholder="rebaja">
+          </div>
+          <div>
+            <label>CategoriasId</label>
+            <input type="text" ngModel name="categoriasId" id="categoriasId" placeholder="categoriasId">
+          </div>
+          <div>
+
+            <div class="mt-sm ">
+              <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display">Close</span>
+            </div>
+            <div class="mt-sm ">
+              <button [disabled]="addForm.invalid" type="submit">
+                Añadir
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

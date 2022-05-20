@@ -6,6 +6,6 @@ export class Productos {
     descripcion: string;
     precio: number;
     rebaja: number;
-    categoriasid: number;
+    categoriasId: number;
     precioRebajado: number;
 }

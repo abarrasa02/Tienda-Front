@@ -1,5 +1,5 @@
-
-<div  *ngFor="let usuario of usuarios">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div *ngFor="let usuario of usuarios">
     <p>Nombre:{{usuario?.nombre}}</p>
     <p>Apellido:{{usuario?.apellido}}</p>
     <p>Apellido2:{{usuario?.apellido2}}</p>
@@ -7,4 +7,61 @@
     <p>Email:{{usuario?.email}}</p>
     <p>Direccion:{{usuario?.lineadireccion1}}</p>
     <p>Pais:{{usuario?.pais}}</p>
+</div>
+
+<div class="w3-container">
+
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open
+        Modal</button>
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <form #addForm="ngForm" (ngSubmit)="AddUsuarios(addForm)">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" ngModel name="nombre" id="nombre" placeholder="nombre">
+                    </div>
+                    <div>
+                        <label>Apellido</label>
+                        <input type="text" ngModel name="apellido" id="apellido" placeholder="apellido">
+                    </div>
+                    <div>
+                        <label>Apellido2</label>
+                        <input type="text" ngModel name="apellido2" id="apellido2" placeholder="apellido2">
+                    </div>
+                    <div>
+                        <label>Ciudad</label>
+                        <input type="text" ngModel name="ciudad" id="ciudad" placeholder="ciudad">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="text" ngModel name="email" id="email" placeholder="email">
+                    </div>
+                    <div>
+                        <label>Direccion</label>
+                        <input type="text" ngModel name="lineadireccion1" id="lineadireccion1"
+                            placeholder="lineadireccion1">
+                    </div>
+                    <div>
+                        <div>
+                            <label>Pais</label>
+                            <input type="text" ngModel name="pais" id="pais" placeholder="pais">
+                        </div>
+                        <div class="mt-sm ">
+                            <span onclick="document.getElementById('id01').style.display='none'"
+                                class="w3-button w3-display">Close</span>
+                        </div>
+                        <div class="mt-sm ">
+                            <button [disabled]="addForm.invalid" type="submit">
+                                Añadir
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
