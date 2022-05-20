@@ -88,13 +88,29 @@ export class DetallePedidosComponent implements OnInit {
     container!.appendChild(button);
     button.click();
   }
-  public abrir(detallePedidos: DetallePedidos | null){
-    if(detallePedidos){
+  public abrir(detallePedidos: DetallePedidos | null, mode: string){
+    if(mode == 'eliminar'){
       document.getElementById('id02').style.display = 'block';
       this.deleteDetallePedidos = detallePedidos;
-    }else{
-      document.getElementById('id02').style.display = 'block';
+    }
+    if(mode == 'add'){
+      document.getElementById('id01').style.display = 'block';
+    }
+    if(mode == 'update'){
+      document.getElementById('id03').style.display = 'block';
+      this.updateDetallePedidos = detallePedidos;
     }
   }
+  public cerrar(mode: string){
+    if(mode == 'eliminar'){
+    document.getElementById('id02').style.display = 'none';
+  }
+  if(mode == 'add'){
+    document.getElementById('id01').style.display = 'none';
+  }
+  if(mode == 'update'){
+    document.getElementById('id03').style.display = 'none';
+  }
+}
 }
 
