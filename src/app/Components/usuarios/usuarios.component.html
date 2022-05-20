@@ -8,7 +8,7 @@
     <p>Direccion:{{usuario?.lineadireccion1}}</p>
     <p>Pais:{{usuario?.pais}}</p>
     <button (click)="abrir(usuario,'eliminar')">Eliminar</button>
-    <button (click)="abrir(usuario,'Editar')">Editar</button>
+    <button (click)="abrir(usuario,'update')">Editar</button>
 </div>
 
 <div class="w3-container">
@@ -103,3 +103,72 @@
         </div>
     </div>
 </div>
+<div id="id03" class="modal">
+    <div class="modal-body" *ngIf="updateUsuarios">
+      <div class="modal-head">
+        <h2>Productos</h2>
+      </div>
+      <div class="modal-body-content">
+        <span (click)="cerrar('update')"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #editForm="ngForm">
+          <div class="form">
+            <input type="text" ngModel name="nombre" id="nombre"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.nombre"/>
+            <label for="nombre" class="label-name">
+              <span class="content-name">Nombre</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="apellido" id="apellido"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.apellido"/>
+            <label for="apellido" class="label-name">
+              <span class="content-name">Apellido</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="apellido2" id="apellido2"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.apellido2"/>
+            <label for="apellido2" class="label-name">
+              <span class="content-name">Apellido2</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="ciudad" id="ciudad"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.ciudad"/>
+            <label for="ciudad" class="label-name">
+              <span class="content-name">Ciudad</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="email" id="email"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.email"/>
+            <label for="email" class="label-name">
+              <span class="content-name">Email</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="lineadireccion1" id="lineadireccion1"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.apellido2"/>
+            <label for="lineadireccion1" class="label-name">
+              <span class="content-name">Direccion</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="pais" id="pais"
+              autocomplete="off" required [(ngModel)]="updateUsuarios.pais"/>
+            <label for="apellido2" class="label-name">
+              <span class="content-name">Apellido2</span>
+            </label>
+          </div>
+          <div>
+            <span (click)="cerrar('update')" class="span">Cerrar</span>
+            <button type="submit" class="span"
+              (click)="onUpdateUsuarios(updateUsuarios); cerrar('update');">
+              Añadir
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

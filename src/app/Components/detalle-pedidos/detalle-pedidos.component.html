@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<<<<<<< HEAD
 <div>
     <button (click)="abrir(null,'add')" class="span">Añadir</button>
     <div class="table-section">
@@ -24,6 +25,17 @@
             </tr>
         </table>
     </div>
+=======
+<div *ngFor="let DetallePedidos of detallePedidos">
+    <p>ID:{{DetallePedidos?.id}}</p>
+    <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
+    <p>Cantidad:{{DetallePedidos?.cantidad}}</p>
+    <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
+    <p>ProductosId:{{DetallePedidos?.productosId}}</p>
+    <button (click)="abrir(DetallePedidos,'eliminar')">Eliminar</button>
+    <button (click)="abrir(DetallePedidos,'update')">Editar</button>
+
+>>>>>>> da4b0877f0fcf63ff969a4a88511071de1b75c2e
 </div>
 <div class="w3-container">
     <div id="id01" class="modal">
@@ -90,3 +102,37 @@
         </div>
     </div>
 </div>
+<div id="id03" class="modal">
+    <div class="modal-body" *ngIf="updateDetallePedidos">
+      <div class="modal-head">
+        <h2>Categorias</h2>
+      </div>
+      <div class="modal-body-content">
+        <span (click)="cerrar('update')"
+          class="w3-button w3-display-topright">&times;</span>
+        <form #editForm="ngForm">
+          <div class="form">
+            <input type="text" ngModel name="pedidoId" id="pedidoId"
+              autocomplete="off" required [(ngModel)]="updateDetallePedidos.pedidoId"/>
+            <label for="pedidoId" class="label-name">
+              <span class="content-name">PedidoId</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="cantidad" id="cantidad"
+              autocomplete="off" required [(ngModel)]="updateDetallePedidos.cantidad"/>
+            <label for="cantidad" class="label-name">
+              <span class="content-name">Cantidad</span>
+            </label>
+          </div>
+          <div>
+            <span (click)="cerrar('update')" class="span">Cerrar</span>
+            <button type="submit" class="span"
+              (click)="onUpdateDetallePedidos(updateDetallePedidos); cerrar('update');">
+              Añadir
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

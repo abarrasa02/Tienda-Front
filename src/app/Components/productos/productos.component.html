@@ -13,7 +13,7 @@
             <span id="rebaja">{{producto.rebaja}}%</span>
           </p>
           <button (click)="abrir(producto,'eliminar')">Eliminar</button>
-          <button (click)="abrir(producto,'Editar')">Editar</button>
+          <button (click)="abrir(producto,'update')">Editar</button>
 
           <a href="#">Read More</a>
 
@@ -81,22 +81,45 @@
   </div>
   </div>
   <div>
-    <div id="id02" class="modal">
-        <div class="modal-body" *ngIf="deleteProductos">
-            <div class="modal-head">
-                <h2>Pedidos</h2>
-            </div>
-            <div class="modal-body-content">
-                <span (click)="cerrar('eliminar')" class="w3-button w3-display-topright">&times;</span>
-                <h4>¿Estas seguro de que quieres eliminar la
-                    {{deleteProductos.nombre}}?</h4>
-                <span (click)="cerrar('eliminar')" class="span">No</span>
-                <button type="submit" class="span"
-                    (click)="cerrar('eliminar'); onDeleteProductos(deleteProductos.id)">
-                    Si
-                </button>
-            </div>
+    <div id="id03" class="modal">
+      <div class="modal-body" *ngIf="updateProductos">
+        <div class="modal-head">
+          <h2>Productos</h2>
         </div>
+        <div class="modal-body-content">
+          <span (click)="cerrar('update')"
+            class="w3-button w3-display-topright">&times;</span>
+          <form #editForm="ngForm">
+            <div class="form">
+              <input type="text" ngModel name="nombre" id="nombre"
+                autocomplete="off" required [(ngModel)]="updateProductos.nombre"/>
+              <label for="nombre" class="label-name">
+                <span class="content-name">Nombre</span>
+              </label>
+            </div>
+            <div class="form">
+              <input type="text" ngModel name="precio" id="precio"
+                autocomplete="off" required [(ngModel)]="updateProductos.precio"/>
+              <label for="precio" class="label-name">
+                <span class="content-name">Precio</span>
+              </label>
+            </div>
+            <div class="form">
+              <input type="text" ngModel name="rebaja" id="rebaja"
+                autocomplete="off" required [(ngModel)]="updateProductos.rebaja"/>
+              <label for="rebaja" class="label-name">
+                <span class="content-name">Rebaja</span>
+              </label>
+            </div>
+            <div>
+              <span (click)="cerrar('update')" class="span">Cerrar</span>
+              <button type="submit" class="span"
+                (click)="onUpdateProductos(updateProductos); cerrar('update');">
+                Añadir
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
   
