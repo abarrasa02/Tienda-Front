@@ -17,21 +17,19 @@
           <form #addForm="ngForm" (ngSubmit)="AddCategoria(addForm)">
             <div>
               <label>Descripcion</label>
-              <input type="text" ngModel name="descripcion" class="w-full " id="descripcion" placeholder="descripcion" >
+              <input type="text" ngModel name="descripcion"  id="descripcion" placeholder="descripcion" >
             </div>
             <div>
               <label>nombre</label>
-              <input type="text" ngModel name="nombre" class="w-full " id="nombre" placeholder="nombre" >
+              <input type="text" ngModel name="nombre"  id="nombre" placeholder="nombre" >
               </div>
               <div>
               <label>Imagen</label>
-              <input type="text" ngModel name="imagen" class="w-full " id="imagen" placeholder="imagen" >
+              <input type="text" ngModel name="imagen" id="imagen" placeholder="imagen" >
               </div>
               <div >
                 <div class="mt-sm ">
-                   <span onclick="document.getElementById('id01').style.display='none'">
-                      Close
-                   </span>
+                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display" >Close</span>
                 </div>
                 <div class="mt-sm ">
                    <button [disabled]="addForm.invalid" type="submit">
