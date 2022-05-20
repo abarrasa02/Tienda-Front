@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div  *ngFor="let DetallePedidos of detallePedidos">
     <p>ID:{{DetallePedidos?.id}}</p>
     <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
@@ -5,3 +7,45 @@
     <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
     <p>ProductosId:{{DetallePedidos?.productosId}}</p>
 </div>
+
+
+<div class="w3-container">
+   
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+  
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <form #addForm="ngForm" (ngSubmit)="AddDetallePedidos(addForm)">
+            <div>
+              <label>PedidoId</label>
+              <input type="text" ngModel name="pedidoId"  id="pedidoId" placeholder="pedidoId" >
+            </div>
+            <div>
+              <label>Cantidad</label>
+              <input type="text" ngModel name="cantidad"  id="cantidad" placeholder="cantidad" >
+              </div>
+              <div>
+              <label>PrecioUnidad:</label>
+              <input type="text" ngModel name="precioUnidad" id="precioUnidad" placeholder="precioUnidad" >
+              </div>
+              <div>
+                <label>ProductosId</label>
+                <input type="text" ngModel name="productosId" id="productosId" placeholder="productosId" >
+                </div>
+              <div >
+                <div class="mt-sm ">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display" >Close</span>
+                </div>
+                <div class="mt-sm ">
+                   <button [disabled]="addForm.invalid" type="submit">
+                      Añadir
+                   </button>
+                </div>
+             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
