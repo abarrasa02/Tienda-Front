@@ -13,7 +13,7 @@ position: relative;
 }
 .modal .modal-body span:hover{
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(167, 144, 144, 0.6);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     background: rgb(255, 0, 0);
     color: rgb(255, 255, 255);
 }
@@ -48,6 +48,7 @@ position: relative;
     width: 600px;
     padding: 30px;
 }
+    
 .form {
     display: flex;
     justify-content: center;
