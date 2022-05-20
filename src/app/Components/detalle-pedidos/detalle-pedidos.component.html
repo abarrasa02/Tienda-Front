@@ -1,51 +1,78 @@
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div  *ngFor="let DetallePedidos of detallePedidos">
+<div *ngFor="let DetallePedidos of detallePedidos">
     <p>ID:{{DetallePedidos?.id}}</p>
     <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
     <p>Cantidad:{{DetallePedidos?.cantidad}}</p>
     <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
     <p>ProductosId:{{DetallePedidos?.productosId}}</p>
+    <button (click)="abrir(DetallePedidos)">Eliminar</button>
 </div>
 
 
 <div class="w3-container">
-   
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
-  
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-          <form #addForm="ngForm" (ngSubmit)="AddDetallePedidos(addForm)">
-            <div>
-              <label>PedidoId</label>
-              <input type="text" ngModel name="pedidoId"  id="pedidoId" placeholder="pedidoId" >
+
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open
+        Modal</button>
+
+    <div id="id01" class="modal">
+        <div class="modal-body">
+            <div class="modal-head">
+                <h2>DetallePedidos</h2>
             </div>
-            <div>
-              <label>Cantidad</label>
-              <input type="text" ngModel name="cantidad"  id="cantidad" placeholder="cantidad" >
-              </div>
-              <div>
-              <label>PrecioUnidad:</label>
-              <input type="text" ngModel name="precioUnidad" id="precioUnidad" placeholder="precioUnidad" >
-              </div>
-              <div>
-                <label>ProductosId</label>
-                <input type="text" ngModel name="productosId" id="productosId" placeholder="productosId" >
-                </div>
-              <div >
-                <div class="mt-sm ">
-                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display" >Close</span>
-                </div>
-                <div class="mt-sm ">
-                   <button [disabled]="addForm.invalid" type="submit">
-                      Añadir
-                   </button>
-                </div>
-             </div>
-          </form>
+            <div class="modal-body-content">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <form #addForm="ngForm" (ngSubmit)="AddDetallePedidos(addForm)">
+                    <div class="form">
+                        <input type="text" ngModel name="pedidoId" id="pedidoId" autocomplete="off" required />
+                        <label for="pedidoId" class="label-name">
+                            <span class="content-name">PedidoId</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="text" ngModel name="precioUnidad" id="precioUnidad" autocomplete="off" required />
+                        <label for="precioUnidad" class="label-name">
+                            <span class="content-name">PrecioUnidad</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="text" ngModel name="productoId" id="productoId" autocomplete="off" required />
+                        <label for="productoId" class="label-name">
+                            <span class="content-name">ProductosId</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="text" ngModel name="cantidad" id="cantidad" autocomplete="off" required />
+                        <label for="cantidad" class="label-name">
+                            <span class="content-name">Cantidad</span>
+                        </label>
+                    </div>
+                    <div>
+                        <span onclick="document.getElementById('id01').style.display='none'" class="span">Cerrar</span>
+                        <button [disabled]="addForm.invalid" type="submit" class="span"
+                            onclick="document.getElementById('id01').style.display='none'">
+                            Añadir
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<div id="id02" class="modal">
+    <div class="modal-body" *ngIf="deleteDetallePedidos">
+        <div class="modal-head">
+            <h2>Categorias</h2>
+        </div>
+        <div class="modal-body-content">
+            <span onclick="document.getElementById('id02').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+            <h4>Estas seguro de que quieres eliminar esta DetallePedidos{{deleteDetallePedidos.pedidoId}}</h4>
+            <span onclick="document.getElementById('id02').style.display='none'" class="span">Si</span>
+            <button type="submit" class="span" onclick="document.getElementById('id02').style.display='none'">
+                Si
+            </button>
+        </div>
+    </div>
+</div>

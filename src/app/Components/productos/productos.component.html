@@ -26,55 +26,51 @@
           <span><del>{{producto.precio}}</del></span>
           <span id="rebaja">{{producto.rebaja}}%</span>
         </p>
-     
+
 
       </div>
     </div>
   </div>
-<div class="w3-container">
+  <div class="w3-container">
 
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
-
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content">
-      <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'"
-          class="w3-button w3-display-topright">&times;</span>
-        <form #addForm="ngForm" (ngSubmit)="AddProductos(addForm)">
-          <div>
-            <label>Nombre</label>
-            <input type="text" ngModel name="nombre" id="nombre" placeholder="nombre">
-          </div>
-          <div>
-            <label>Descripcion</label>
-            <input type="text" ngModel name="descripcion" id="descripcion" placeholder="descripcion">
-          </div>
-          <div>
-            <label>Precio</label>
-            <input type="text" ngModel name="precio" id="precio" placeholder="precio">
-          </div>
-          <div>
-            <label>Rebaja</label>
-            <input type="text" ngModel name="rebaja" id="rebaja" placeholder="rebaja">
-          </div>
-          <div>
-            <label>CategoriasId</label>
-            <input type="text" ngModel name="categoriasId" id="categoriasId" placeholder="categoriasId">
-          </div>
-          <div>
-
-            <div class="mt-sm ">
-              <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display">Close</span>
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open
+      Modal</button>
+    <div id="id01" class="modal">
+      <div class="modal-body">
+        <div class="modal-head">
+          <h2>Pedidos</h2>
+        </div>
+        <div class="modal-body-content">
+          <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+          <form #addForm="ngForm" (ngSubmit)="AddProductos(addForm)">
+            <div class="form">
+              <input type="text" ngModel name="nombre" id="nombre" autocomplete="off" required />
+              <label for="nombre" class="label-name">
+                <span class="content-name">Nombre</span>
+              </label>
             </div>
-            <div class="mt-sm ">
-              <button [disabled]="addForm.invalid" type="submit">
+            <div class="form">
+              <input type="text" ngModel name="precio" id="precio" autocomplete="off" required />
+              <label for="precio" class="label-name">
+                <span class="content-name">Precio</span>
+              </label>
+            </div>
+            <div class="form">
+              <input type="text" ngModel name="rebaja" id="rebaja" autocomplete="off" required />
+              <label for="rebaja" class="label-name">
+                <span class="content-name">Rebaja</span>
+              </label>
+            </div>
+            <div>
+              <span onclick="document.getElementById('id01').style.display='none'" class="span">Cerrar</span>
+              <button [disabled]="addForm.invalid" type="submit" class="span"
+                onclick="document.getElementById('id01').style.display='none'">
                 Añadir
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

@@ -88,5 +88,13 @@ export class DetallePedidosComponent implements OnInit {
     container!.appendChild(button);
     button.click();
   }
+  public abrir(detallePedidos: DetallePedidos | null){
+    if(detallePedidos){
+      document.getElementById('id02').style.display = 'block';
+      this.deleteDetallePedidos = detallePedidos;
+    }else{
+      document.getElementById('id02').style.display = 'block';
+    }
+  }
 }
 

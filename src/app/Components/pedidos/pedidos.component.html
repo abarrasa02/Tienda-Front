@@ -9,32 +9,36 @@
    
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
   
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-          <form #addForm="ngForm" (ngSubmit)="AddPedidos(addForm)">
-            <div>
-              <label>Fecha</label>
-              <input type="text" ngModel name="fecha"  id="fecha" placeholder="fecha" >
+    <div id="id01" class="modal">
+        <div class="modal-body">
+            <div class="modal-head">
+                <h2>Pedidos</h2>
             </div>
-            <div>
-              <label>UsuarioId</label>
-              <input type="text" ngModel name="usuarioId"  id="usuarioId" placeholder="usuarioId" >
-              </div>
-              <div>
-            
-                <div class="mt-sm ">
-                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display" >Close</span>
-                </div>
-                <div class="mt-sm ">
-                   <button [disabled]="addForm.invalid" type="submit">
-                      Añadir
-                   </button>
-                </div>
-             </div>
-          </form>
+            <div class="modal-body-content">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <form #addForm="ngForm" (ngSubmit)="AddPedidos(addForm)">
+                    <div class="form">
+                        <input type="text" ngModel name="fecha" id="fecha" autocomplete="off" required />
+                        <label for="fecha" class="label-name">
+                            <span class="content-name">Fecha</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="text" ngModel name="usuarioId" id="usuarioId" autocomplete="off" required />
+                        <label for="usuarioId" class="label-name">
+                            <span class="content-name">usuarioId</span>
+                        </label>
+                    </div>
+                    <div>
+                        <span onclick="document.getElementById('id01').style.display='none'" class="span">Cerrar</span>
+                        <button [disabled]="addForm.invalid" type="submit" class="span"
+                            onclick="document.getElementById('id01').style.display='none'">
+                            Añadir
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
   </div>
