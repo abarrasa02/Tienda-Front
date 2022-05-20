@@ -5,20 +5,6 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-/* custom scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #000000;
-}
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-::selection{
-  background: rgb(0,123,255,0.3);
-}
-
 .main-container{
   display: flex;
   flex-wrap: wrap;
