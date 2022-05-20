@@ -122,4 +122,24 @@
         </div>
       </div>
     </div>
+    <div>
+      <div id="id02" class="modal">
+        <div class="modal-body" *ngIf="deleteProductos">
+          <div class="modal-head">
+            <h2>Categorias</h2>
+          </div>
+          <div class="modal-body-content">
+            <span (click)="cerrar('eliminar')"
+              class="w3-button w3-display-topright">&times;</span>
+            <h4>¿Estas seguro de que quieres eliminar la
+              {{deleteProductos.nombre}}?</h4>
+            <span (click)="cerrar('eliminar')" class="span">No</span>
+            <button type="submit" class="span"
+              (click)="cerrar('eliminar'); onDeleteProductos(deleteProductos.id)">
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   
