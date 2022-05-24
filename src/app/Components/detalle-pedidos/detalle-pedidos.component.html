@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<<<<<<< HEAD
+=======
+
+>>>>>>> e57eeeafeabb5ee69d279ea4466f82d32cc79f46
 <div>
     <button (click)="abrir(null,'add')" class="span">Añadir</button>
     <div class="table-section">
@@ -26,6 +30,20 @@
             </tr>
         </table>
     </div>
+<<<<<<< HEAD
+=======
+
+<div *ngFor="let DetallePedidos of detallePedidos">
+    <p>ID:{{DetallePedidos?.id}}</p>
+    <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
+    <p>Cantidad:{{DetallePedidos?.cantidad}}</p>
+    <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
+    <p>ProductosId:{{DetallePedidos?.productosId}}</p>
+    <button (click)="abrir(DetallePedidos,'eliminar')">Eliminar</button>
+    <button (click)="abrir(DetallePedidos,'update')">Editar</button>
+
+
+>>>>>>> e57eeeafeabb5ee69d279ea4466f82d32cc79f46
 </div>
 <div class="w3-container">
     <div id="id01" class="modal">
