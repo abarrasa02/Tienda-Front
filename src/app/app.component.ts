@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { Categorias } from './Classes/categorias';
 import { Router } from '@angular/router';
@@ -19,13 +20,10 @@ export class AppComponent {
 @HostListener('window:scroll', ['$event'])
 
 public onWindowScroll() {
-    let css = '.menu-list li a:hover{ color: #ffffff; }';
     let element = document.querySelector('.navbar') as HTMLElement;
-    let style = document.createElement('style');
-    style.style.cssText = css;
-    element.classList.remove('HoverClass2', 'HoverClass1')
-    if (window.pageYOffset > element.clientHeight) {
+    if (window.pageYOffset+10 > element.clientHeight) {
       element.style.backgroundColor = '#2196f3';
+      
     } else {
       element.style.backgroundColor = 'transparent';
 

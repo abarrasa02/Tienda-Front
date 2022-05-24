@@ -14,7 +14,10 @@ export class PedidosComponent implements OnInit {
   updatePedidos:Pedidos;
   deletePedidos:Pedidos;
 
-
+  page = 1;
+  count = 0;
+  pageSize = 4;
+  pageSizes = [3, 6, 9];
   constructor( private pedidosService: PedidosService) { }
 
   ngOnInit(): void {

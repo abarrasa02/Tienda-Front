@@ -1,7 +1,14 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="container">
 
-  <div class="card" *ngFor="let producto of productos">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.0/css/all.css">
+<div class="container">
+  <div class="card addCard">
+    <div class="box addBox" (click)="abrir(null, 'add')">
+      <i class="fa-solid fa-plus fa-3x"></i>
+    </div>
+  </div>
+  <div class="card" *ngFor="let producto of productos | paginate: {itemsPerPage: pageSize,
+    currentPage: page,
+    totalItems: count}">
     <div class="box">
       <div>
         <img src="https://thumb.pccomponentes.com/w-220-220/articles/13/132145/dpp-2640.jpg" alt="">
@@ -12,40 +19,24 @@
             <span><del>{{producto.precio}}</del></span>
             <span id="rebaja">{{producto.rebaja}}%</span>
           </p>
-          <button (click)="abrir(producto,'eliminar')">Eliminar</button>
-          <button (click)="abrir(producto,'update')">Editar</button>
-
-          <a href="#">Read More</a>
+          <div>
+          <a (click)="abrir(producto,'eliminar')"class="deleteButton"><i class="fa fa-pen"></i></a>
+          <a (click)="abrir(producto,'update')" class="updateButton"><i class="fa fa-trash"></i></a>
+          </div>
+          <a href="#">Comprar</a>
 
         </div>
       </div>
     </div>
   </div>
+  <div>
 
-  <div class="card" *ngFor="let producto of productos">
-    <div class="box">
-      <div class="content">
-        <h3>{{producto.nombre}}</h3>
-        <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
-          <span><del>{{producto.precio}}</del></span>
-          <span id="rebaja">{{producto.rebaja}}%</span>
-        </p>
-
-
-      </div>
-    </div>
-  </div>
-  <div class="w3-container">
-
-    <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
   <div id="id01" class="modal">
     <div class="modal-body">
       <div class="modal-head">
         <h2>Pedidos</h2>
       </div>
       <div class="modal-body-content">
-        <span (click)="cerrar('add')"
-          class="w3-button w3-display-topright">&times;</span>
         <form #addForm="ngForm" (ngSubmit)="AddProductos(addForm)">
           <div class="form">
             <input type="text" ngModel name="nombre" id="nombre"
@@ -62,14 +53,14 @@
             </label>
           </div>
           <div class="form">
-            <input type="text" ngModel name="rebaja" id="rebaja"
+            <input type="text" ngModel name="rebaja"
               autocomplete="off" required />
             <label for="rebaja" class="label-name">
               <span class="content-name">Rebaja</span>
             </label>
           </div>
           <div>
-            <span (click)="cerrar('add')" class="span">Cerrar</span>
+            <button (click)="cerrar('add')" type="button" class="span">Cerrar</button>
             <button [disabled]="addForm.invalid" type="submit" class="span"
               (click)="cerrar('add')">
               Añadir
@@ -122,4 +113,17 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<footer class="footer">
+  <pagination-controls
+  (pageChange)="page = $event"
+                previousLabel="Anterior"
+                nextLabel="Siguente"
+                screenReaderPaginationLabel="Pagination"
+                screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+</footer>
+    
   

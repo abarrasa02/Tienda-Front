@@ -10,7 +10,9 @@
                 <th class="header-item items">Descripcion</th>
                 <th class="header-item items">Acción</th>
             </tr>
-            <tr class="table-rows" *ngFor="let categoria of categorias">
+            <tr class="table-rows" *ngFor="let categoria of categorias | paginate: {itemsPerPage: pageSize,
+              currentPage: page,
+              totalItems: count}">
                 <td class="items">{{categoria.id}}</td>
                 <td class="items">{{categoria?.nombre}}</td>
                 <td class="items icon">{{categoria?.descripcion}}</td>
@@ -20,6 +22,8 @@
                 </td>
             </tr>
         </table>
+        <div class="col-md-12">
+        </div>
     </div>
   </div>
   <div id="id01" class="modal">
@@ -113,3 +117,13 @@
     </div>
   </div>
 </div>
+<footer class="footer">
+  <pagination-controls
+  (pageChange)="page = $event"
+                previousLabel="Anterior"
+                nextLabel="Siguente"
+                screenReaderPaginationLabel="Pagination"
+                screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+</footer>

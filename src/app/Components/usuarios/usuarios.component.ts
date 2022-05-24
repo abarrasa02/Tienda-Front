@@ -13,6 +13,11 @@ export class UsuariosComponent implements OnInit {
   usuarios:Usuarios[];
   updateUsuarios:Usuarios;
   deleteUsuarios:Usuarios;
+
+  page = 1;
+  count = 0;
+  pageSize = 4;
+  pageSizes = [3, 6, 9];
   constructor(private usuariosService:UsuariosService) { }
 
   ngOnInit(): void {

@@ -1,23 +1,29 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Categorias } from 'src/app/Classes/categorias';
 import { CategoriasService } from 'src/app/Service/categorias.service';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
-  styleUrls: ['./categorias.component.css']
+  styleUrls: ['./categorias.component.css'],
   
 })
+
 export class CategoriasComponent implements OnInit {
   categorias: Categorias[];
   updatecategoria:Categorias;
   deletecategoria:Categorias;
 
-  constructor( private categoriasService: CategoriasService) { }
+  page = 1;
+  count = 0;
+  pageSize = 4;
+  pageSizes = [3, 6, 9];
+  constructor( private categoriasService: CategoriasService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCategorias();

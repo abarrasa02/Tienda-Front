@@ -13,6 +13,11 @@ export class DetallePedidosComponent implements OnInit {
   detallePedidos: DetallePedidos[];
   updateDetallePedidos:DetallePedidos;
   deleteDetallePedidos:DetallePedidos;
+
+  page = 1;
+  count = 0;
+  pageSize = 4;
+  pageSizes = [3, 6, 9];
   constructor(private detallePedidosService: DetallePedidosService) { }
 
   ngOnInit(): void {

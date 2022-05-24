@@ -16,8 +16,8 @@
   margin-left: 4px;
   border-radius: 3px;
   color: white;
-    font-weight: bold;
-    padding: 2px;
+  font-weight: bold;
+  padding: 2px;
 }
 img{
     height: 200px;
@@ -40,7 +40,7 @@ img{
   margin: 0px;
   border: none;
   transition: 0.5s;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .content{
   display: flex;
@@ -64,9 +64,10 @@ img{
 
 .container .card .box:hover {
   box-shadow: 10px 5px 5px rgb(189, 189, 189);
-  margin-top: -20px;
-  height: 300px;
+  margin-top: -50px;
+  height: 360px;
   border: 1px rgb(184, 184, 184) solid;
+
 }
 
 .container .card .box:before {
@@ -108,7 +109,8 @@ body .container .card .box .content {
   display: none;
 }
 .container .card:hover .box .content a{
-margin: 10px;
+  cursor: pointer;
+margin: 5px;
 position: relative;
   display: inline-block;
   padding: 8px 20px;
@@ -233,4 +235,22 @@ border: none;
 .form input:focus .label-name::after,
 .form input:valid + .label-name:after {
   transform: translateX(0%);
+}
+.addBox{
+  color: #2196f3;
+  cursor: pointer;
+}
+.updateButton{
+  width: 50px;
+  margin: 2px;
+}
+.deleteButton{
+  width: 50px;
+  margin: 2px;
+}
+.footer{
+  display: flex;
+  justify-content: center;
+  bottom: 10px;
+  left: 10px;
 }

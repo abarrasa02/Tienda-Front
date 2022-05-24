@@ -1,19 +1,32 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div *ngFor="let usuario of usuarios">
-    <p>Nombre:{{usuario?.nombre}}</p>
-    <p>Apellido:{{usuario?.apellido}}</p>
-    <p>Apellido2:{{usuario?.apellido2}}</p>
-    <p>Ciudad:{{usuario?.ciudad}}</p>
-    <p>Email:{{usuario?.email}}</p>
-    <p>Direccion:{{usuario?.lineadireccion1}}</p>
-    <p>Pais:{{usuario?.pais}}</p>
-    <button (click)="abrir(usuario,'eliminar')">Eliminar</button>
-    <button (click)="abrir(usuario,'update')">Editar</button>
+<div id="main-container">
+  <button (click)="abrir(null,'add')" class="span">Añadir</button>
+<div>
+  <div class="table-section">
+    <table id="table">
+      <tr class="header-row">
+        <th class="header-item items">ID</th>
+        <th class="header-item items">Nombre</th>
+        <th class="header-item items">Email</th>
+        <th class="header-item items">Direccion</th>
+        <th class="header-item items">Acción</th>
+      </tr>
+      <tr class="table-rows" *ngFor="let usuario of usuarios | paginate: {itemsPerPage: pageSize,
+        currentPage: page,
+        totalItems: count}">
+        <td class="items">{{usuario.id}}</td>
+        <td class="items">{{usuario.nombre}} {{usuario.apellido}} {{usuario.apellido2}}</td>
+        <td class="items">{{usuario.email}}</td>
+        <td class="items">{{usuario.lineadireccion1}}</td>
+        <td class="items icon">
+          <button class="span" (click)="abrir(usuario, 'eliminar')">Eliminar</button>
+          <button class="span" (click)="abrir(usuario, 'update')">Editar</button>
+        </td>
+      </tr>
+    </table>
 </div>
-
-<div class="w3-container">
-
-    <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
+<div>
+</div>
     <div id="id01" class="modal">
       <div class="modal-body">
         <div class="modal-head">
@@ -172,3 +185,14 @@
       </div>
     </div>
   </div>
+</div>
+  <footer class="footer">
+    <pagination-controls
+    (pageChange)="page = $event"
+                  previousLabel="Anterior"
+                  nextLabel="Siguente"
+                  screenReaderPaginationLabel="Pagination"
+                  screenReaderPageLabel="page"
+                  screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </footer>

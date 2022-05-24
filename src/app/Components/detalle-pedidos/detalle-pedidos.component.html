@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<<<<<<< HEAD
 <div>
     <button (click)="abrir(null,'add')" class="span">Añadir</button>
     <div class="table-section">
@@ -10,9 +9,11 @@
                 <th class="header-item items">Cantidad</th>
                 <th class="header-item items">Precio por unidad</th>
                 <th class="header-item items">Producto ID</th>
-                <th class="header-item items">Acción/th>
+                <th class="header-item items">Acción</th>
             </tr>
-            <tr class="table-rows" *ngFor="let DetallePedidos of detallePedidos">
+            <tr class="table-rows" *ngFor="let DetallePedidos of detallePedidos | paginate: {itemsPerPage: pageSize,
+              currentPage: page,
+              totalItems: count} ">
                 <td class="items">{{DetallePedidos.id}}</td>
                 <td class="items">{{DetallePedidos?.pedidoId}}</td>
                 <td class="items icon">{{DetallePedidos?.cantidad}}</td>
@@ -25,17 +26,6 @@
             </tr>
         </table>
     </div>
-=======
-<div *ngFor="let DetallePedidos of detallePedidos">
-    <p>ID:{{DetallePedidos?.id}}</p>
-    <p>PedidoId:{{DetallePedidos?.pedidoId}}</p>
-    <p>Cantidad:{{DetallePedidos?.cantidad}}</p>
-    <p>PrecioUnidad:{{DetallePedidos?.precioUnidad}}</p>
-    <p>ProductosId:{{DetallePedidos?.productosId}}</p>
-    <button (click)="abrir(DetallePedidos,'eliminar')">Eliminar</button>
-    <button (click)="abrir(DetallePedidos,'update')">Editar</button>
-
->>>>>>> da4b0877f0fcf63ff969a4a88511071de1b75c2e
 </div>
 <div class="w3-container">
     <div id="id01" class="modal">
@@ -136,3 +126,13 @@
       </div>
     </div>
   </div>
+  <footer class="footer">
+    <pagination-controls
+    (pageChange)="page = $event"
+                  previousLabel="Anterior"
+                  nextLabel="Siguente"
+                  screenReaderPaginationLabel="Pagination"
+                  screenReaderPageLabel="page"
+                  screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </footer>

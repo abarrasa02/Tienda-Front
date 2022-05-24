@@ -1,16 +1,31 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div *ngFor="let pedido of pedidos">
-    <p>ID:{{pedido?.id}}</p>
-    <p>Fecha:{{pedido?.fecha}}</p>
-    <p>usuariosId: {{pedido?.usuarioId}}</p>
-    <button (click)="abrir(pedido,'eliminar')">Eliminar</button>
-    <button (click)="abrir(pedido,'update')">Editar</button>
-</div>
-<div class="w3-container">
-   
-   
-    <button (click)="abrir(null,'add')" class="w3-button w3-black">Open Modal</button>
+
+<div id="main-container">
+  <button (click)="abrir(null,'add')" class="span">Añadir</button>
+  <div>
+    <div class="table-section">
+      <table id="table">
+        <tr class="header-row">
+          <th class="header-item items">ID</th>
+          <th class="header-item items">Fecha</th>
+          <th class="header-item items">Id del Usuario</th>
+          <th class="header-item items">Acción</th>
+        </tr>
+        <tr class="table-rows" *ngFor="let pedido of pedidos | paginate: {itemsPerPage: pageSize,
+          currentPage: page,
+          totalItems: count}">
+          <td class="items">{{pedido.id}}</td>
+          <td class="items">{{pedido.fecha}}</td>
+          <td class="items icon">{{pedido.usuarioId}}</td>
+          <td class="items">
+            <button class="span" (click)="abrir(pedido, 'eliminar')">Eliminar</button>
+            <button class="span" (click)="abrir(pedido, 'update')">Editar</button>
+          </td>
+        </tr>
+      </table>
+  </div>
+  
   <div id="id01" class="modal">
     <div class="modal-body">
       <div class="modal-head">
@@ -23,14 +38,14 @@
           <div class="form">
             <input type="text" ngModel name="fecha" id="fecha"
               autocomplete="off" required />
-            <label for="fecha " class="label-name">
+            <label for="fecha"class="label-name">
               <span class="content-name">Fecha</span>
             </label>
           </div>
           <div class="form">
             <input type="text" ngModel name="cantidad" id="cantidad"
               autocomplete="off" required />
-            <label for="cantidad " class="label-name">
+            <label for="cantidad"class="label-name">
               <span class="content-name">Cantidad</span>
             </label>
           </div>
@@ -52,59 +67,70 @@
       </div>
     </div>
   </div>
- 
+
 </div>
 <div>
-    <div id="id02" class="modal">
-        <div class="modal-body" *ngIf="deletePedidos">
-            <div class="modal-head">
-                <h2>Pedidos</h2>
-            </div>
-            <div class="modal-body-content">
-                <span (click)="cerrar('eliminar')" class="w3-button w3-display-topright">&times;</span>
-                <h4>¿Estas seguro de que quieres eliminar la
-                    {{deletePedidos.id}}?</h4>
-                <span (click)="cerrar('eliminar')" class="span">No</span>
-                <button type="submit" class="span"
-                    (click)="cerrar('eliminar'); onDeletePedidos(deletePedidos.id)">
-                    Si
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="id03" class="modal">
-    <div class="modal-body" *ngIf="updatePedidos">
+  <div id="id02" class="modal">
+    <div class="modal-body" *ngIf="deletePedidos">
       <div class="modal-head">
         <h2>Pedidos</h2>
       </div>
       <div class="modal-body-content">
-        <span (click)="cerrar('update')"
-          class="w3-button w3-display-topright">&times;</span>
-        <form #editForm="ngForm">
-          <div class="form">
-            <input type="text" ngModel name="fecha" id="fecha"
-              autocomplete="off" required [(ngModel)]="updatePedidos.fecha"/>
-            <label for="fecha" class="label-name">
-              <span class="content-name">Fecha</span>
-            </label>
-          </div>
-          <div class="form">
-            <input type="text" ngModel name="usuarioId" id="usuarioId"
-              autocomplete="off" required [(ngModel)]="updatePedidos.usuarioId"/>
-            <label for="usuarioId" class="label-name">
-              <span class="content-name">UsuarioId</span>
-            </label>
-          </div>
-          <div>
-            <span (click)="cerrar('update')" class="span">Cerrar</span>
-            <button type="submit" class="span"
-              (click)="onUpdatePedidos(updatePedidos); cerrar('update');">
-              Añadir
-            </button>
-          </div>
-        </form>
+        <span (click)="cerrar('eliminar')" class="w3-button
+          w3-display-topright">&times;</span>
+        <h4>¿Estas seguro de que quieres eliminar la
+          {{deletePedidos.id}}?</h4>
+        <span (click)="cerrar('eliminar')" class="span">No</span>
+        <button type="submit" class="span"
+          (click)="cerrar('eliminar'); onDeletePedidos(deletePedidos.id)">
+          Si
+        </button>
       </div>
     </div>
   </div>
-  
+</div>
+<div id="id03" class="modal">
+  <div class="modal-body" *ngIf="updatePedidos">
+    <div class="modal-head">
+      <h2>Pedidos</h2>
+    </div>
+    <div class="modal-body-content">
+      <span (click)="cerrar('update')"
+        class="w3-button w3-display-topright">&times;</span>
+      <form #editForm="ngForm">
+        <div class="form">
+          <input type="text" ngModel name="fecha" id="fecha"
+            autocomplete="off" required [(ngModel)]="updatePedidos.fecha" />
+          <label for="fecha" class="label-name">
+            <span class="content-name">Fecha</span>
+          </label>
+        </div>
+        <div class="form">
+          <input type="text" ngModel name="usuarioId" id="usuarioId"
+            autocomplete="off" required [(ngModel)]="updatePedidos.usuarioId" />
+          <label for="usuarioId" class="label-name">
+            <span class="content-name">UsuarioId</span>
+          </label>
+        </div>
+        <div>
+          <span (click)="cerrar('update')" class="span">Cerrar</span>
+          <button type="submit" class="span"
+            (click)="onUpdatePedidos(updatePedidos); cerrar('update');">
+            Añadir
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<footer class="footer">
+  <pagination-controls
+  (pageChange)="page = $event"
+                previousLabel="Anterior"
+                nextLabel="Siguente"
+                screenReaderPaginationLabel="Pagination"
+                screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+</footer>

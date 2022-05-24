@@ -13,6 +13,11 @@ export class ProductosComponent implements OnInit {
   productos:Productos[];
   updateProductos:Productos;
   deleteProductos:Productos;
+
+  page = 1;
+  count = 0;
+  pageSize = 4;
+  pageSizes = [3, 6, 9];
   constructor(private productosService:ProductosService) { }
 
   ngOnInit(): void {
