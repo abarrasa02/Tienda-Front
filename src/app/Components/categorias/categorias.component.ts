@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Categorias } from 'src/app/Classes/categorias';
 import { CategoriasService } from 'src/app/Service/categorias.service';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { Router } from '@angular/router';
 
 @Component({
