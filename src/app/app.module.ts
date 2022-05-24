@@ -10,6 +10,9 @@ import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { DetallePedidosComponent } from './Components/detalle-pedidos/detalle-pedidos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EmailComponent } from './Components/email/email.component';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { FormsModule } from '@angular/forms';
     UsuariosComponent,
     CategoriasComponent,
     PedidosComponent,
-    DetallePedidosComponent
+    DetallePedidosComponent,
+    EmailComponent,
+
+
   ],
   imports: [
     BrowserModule,
