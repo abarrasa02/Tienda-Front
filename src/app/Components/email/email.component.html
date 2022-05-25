@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>massage-board</title>
+</head>
+<body>
+    <form #sendForm="ngForm" (ngSubmit)="sendMail(sendForm)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" class="form-control"   ngModel id="email"   aria-describedby="emailHelp" >
+          
+        </div>
+        <div class="form-group" >
+          <label for="asunto" >Asunto</label>
+          <input name="asunto" type="text"  ngModel  class="form-control" id="asunto" >
+        </div>
+        <div class="form-group" >
+            <label for="mensaje">Mensaje</label>
+            <textarea name="mensaje" type="text"  ngModel  id="mensaje" class="form-control" [rows]="8"></textarea>
+          </div>
+          <div>
+            <label for="archivo">Adjuntar</label>
+            <input type="file" [ngModel] (change)="selectFile($event)">
+          </div>
+        <button  [disabled]="sendForm.invalid" type="submit" >Enviar</button>
+      </form>
+</body>
+</html>
