@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Productos } from 'src/app/Classes/productos';
 import { ProductosService } from 'src/app/Service/productos.service';
 import * as FileSaver from 'file-saver';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -20,10 +21,18 @@ export class ProductosComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
-  constructor(private productosService:ProductosService) { }
+  constructor(private productosService:ProductosService,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.getProductos()
+    this.getProductos();
+    this.spinner.show();
+
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 5000);
+
+
   }
   public precioRebajado(precio: number, rebaja: number){
   const precioFinal = precio - precio*(rebaja/100)

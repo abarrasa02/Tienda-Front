@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CategoriasService } from './Service/categorias.service';
 import { EmailComponent } from './Components/email/email.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 
@@ -24,6 +26,7 @@ import { EmailComponent } from './Components/email/email.component';
     DetallePedidosComponent,
     CategoriasComponent,
     EmailComponent,
+    
 
 
   ],
@@ -32,10 +35,13 @@ import { EmailComponent } from './Components/email/email.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule,
+  
   ],
   exports:[
     NgxPaginationModule
+    
   ],
   providers: [CategoriasService],
   bootstrap: [AppComponent]
