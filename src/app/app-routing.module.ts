@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { DetallePedidos } from './Classes/detalle-pedidos';
 import { CategoriasComponent } from './Components/categorias/categorias.component';
 import { DetallePedidosComponent } from './Components/detalle-pedidos/detalle-pedidos.component';
@@ -15,7 +15,13 @@ const routes: Routes = [
   { path: 'productos/all', component: ProductosComponent },
   { path: 'usuarios/all', component: UsuariosComponent },
   {path: 'email', component: EmailComponent},
+  {path: 'productos/export', component:ProductosComponent}
 ];
+const routerOptions: ExtraOptions = {
+  useHash: false,
+  anchorScrolling: 'enabled',
+  // ...any other options you'd like to use
+};
 
 @NgModule({
 

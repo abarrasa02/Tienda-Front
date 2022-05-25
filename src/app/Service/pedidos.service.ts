@@ -42,4 +42,5 @@ export class PedidosService {
     return this.http.delete<Pedidos>(`${this.pedidosUrl}/delete/${id}`)
 
   }
+
 }

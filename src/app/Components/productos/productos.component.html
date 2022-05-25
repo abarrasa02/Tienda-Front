@@ -1,8 +1,10 @@
 
 <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.0/css/all.css">
 <div class="container">
+  
   <div class="card addCard">
     <div class="box addBox" (click)="abrir(null, 'add')">
+     
       <i class="fa-solid fa-plus fa-3x"></i>
     </div>
   </div>
@@ -22,6 +24,7 @@
           <div>
           <a (click)="abrir(producto,'eliminar')"class="deleteButton"><i class="fa fa-pen"></i></a>
           <a (click)="abrir(producto,'update')" class="updateButton"><i class="fa fa-trash"></i></a>
+          <a (click)="download()" >Excel<i class="fa fa-trash"></i></a>
           </div>
           <a href="#">Comprar</a>
 

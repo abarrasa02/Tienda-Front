@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Productos } from 'src/app/Classes/productos';
 import { ProductosService } from 'src/app/Service/productos.service';
+import * as FileSaver from 'file-saver';
+
 
 @Component({
   selector: 'app-productos',
@@ -121,5 +123,15 @@ export class ProductosComponent implements OnInit {
   if(mode == 'update'){
     document.getElementById('id03').style.display = 'none';
   }
+}
+download(){
+  this.productosService.downloadFile().subscribe((response) => {
+     let blob = new Blob([response],{type: '*/*;charset=utf-8'});
+     FileSaver.saveAs(blob,'productos.xls');
+    },
+  (error: any) => console.log('Error downloading the file'),)
+
+
+
 }
 }
