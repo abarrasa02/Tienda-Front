@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CategoriasService } from './Service/categorias.service';
 import { EmailComponent } from './Components/email/email.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotros.component';
 
 
 
@@ -26,6 +27,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DetallePedidosComponent,
     CategoriasComponent,
     EmailComponent,
+    SobreNosotrosComponent,
     
 
 

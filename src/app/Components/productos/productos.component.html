@@ -1,10 +1,12 @@
 
 <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.0/css/all.css">
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#b93838" type = "triangle-skew-spin" [fullScreen] = "true"><p style="color: white" > Jefe Espera </p></ngx-spinner>
 <div class="container">
-  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+ 
   <div class="card addCard">
+    <button (click)="download()" >Excel<i class="fa fa-trash"></i></button>
     <div class="box addBox" (click)="abrir(null, 'add')">
-     
+   
       <i class="fa-solid fa-plus fa-3x"></i>
     </div>
   </div>
@@ -24,7 +26,7 @@
           <div>
           <a (click)="abrir(producto,'eliminar')"class="deleteButton"><i class="fa fa-pen"></i></a>
           <a (click)="abrir(producto,'update')" class="updateButton"><i class="fa fa-trash"></i></a>
-          <a (click)="download()" >Excel<i class="fa fa-trash"></i></a>
+          
           </div>
           <a href="#">Comprar</a>
 
