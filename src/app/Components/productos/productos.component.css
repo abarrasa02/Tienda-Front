@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
-#rebaja{
+#rebaja1{
   background-color: #f35a5a;
   margin-left: 4px;
   border-radius: 3px;
@@ -225,7 +225,7 @@ border: none;
   transition: all 0.3s ease;
 }
 
-.form input:focus + .label-name .content-name,
+.form input[type="text"]:focus + .label-name .content-name,
 .form input:valid + .label-name .content-name {
   transform: translateY(-150%);
   font-size: 14px;
@@ -235,6 +235,11 @@ border: none;
 .form input:focus .label-name::after,
 .form input:valid + .label-name:after {
   transform: translateX(0%);
+}
+.form input[type="file"] + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 15px;
 }
 .addBox{
   color: #2196f3;
@@ -253,4 +258,12 @@ border: none;
   justify-content: center;
   bottom: 10px;
   left: 10px;
+}
+ngx-spinner{
+  position: relative !important;
+}
+#divCategoria{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

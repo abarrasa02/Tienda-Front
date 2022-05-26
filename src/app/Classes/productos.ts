@@ -8,4 +8,5 @@ export class Productos {
     rebaja: number;
     categoriasId: number;
     precioRebajado: number;
+    imagen: any;
 }

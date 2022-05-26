@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Pedidos } from 'src/app/Classes/pedidos';
 import { PedidosService } from 'src/app/Service/pedidos.service';
 
@@ -18,10 +19,16 @@ export class PedidosComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
-  constructor( private pedidosService: PedidosService) { }
+  constructor( private pedidosService: PedidosService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getPedidos();
+    this.spinner.show();
+
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 1000);
   }
   public getPedidos(): void {
       this.pedidosService.findAll().subscribe(

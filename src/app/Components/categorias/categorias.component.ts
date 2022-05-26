@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Categorias } from 'src/app/Classes/categorias';
 import { CategoriasService } from 'src/app/Service/categorias.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-categorias',
@@ -22,11 +23,15 @@ export class CategoriasComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
-  constructor( private categoriasService: CategoriasService, private router: Router) { }
+  constructor( private categoriasService: CategoriasService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getCategorias();
-
+    this.spinner.show();
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 1000);
     }
 
 

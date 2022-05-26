@@ -3,6 +3,7 @@ import { UsuariosService } from 'src/app/Service/usuarios.service';
 import { Usuarios } from 'src/app/Classes/usuarios';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-usuarios',
@@ -18,10 +19,16 @@ export class UsuariosComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
-  constructor(private usuariosService:UsuariosService) { }
+  constructor(private usuariosService:UsuariosService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getUsuarios();
+    this.spinner.show();
+
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 1000);
   }
   public getUsuarios(): void {
     this.usuariosService.findAll().subscribe(

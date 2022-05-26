@@ -5,6 +5,8 @@ import { Productos } from 'src/app/Classes/productos';
 import { ProductosService } from 'src/app/Service/productos.service';
 import * as FileSaver from 'file-saver';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Categorias } from 'src/app/Classes/categorias';
+import { CategoriasService } from 'src/app/Service/categorias.service';
 
 
 @Component({
@@ -16,21 +18,24 @@ export class ProductosComponent implements OnInit {
   productos:Productos[];
   updateProductos:Productos;
   deleteProductos:Productos;
+  producto: Productos;
+  categorias: Categorias[];
+  categoria: Categorias;
 
   page = 1;
   count = 0;
-  pageSize = 4;
+  pageSize = 7;
   pageSizes = [3, 6, 9];
-  constructor(private productosService:ProductosService,private spinner: NgxSpinnerService) { }
+  constructor(private productosService:ProductosService,private spinner: NgxSpinnerService, private categoriasService: CategoriasService) { }
 
   ngOnInit(): void {
     this.getProductos();
     this.spinner.show();
-
+    this.getCategorias();
     setTimeout(() => {
      
       this.spinner.hide();
-  }, 5000);
+  }, 1000);
 
 
   }
@@ -44,6 +49,17 @@ export class ProductosComponent implements OnInit {
       (response: Productos[]) => {
         this.productos = response;
         console.log(this.productos);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  public getCategorias(): void {
+    this.categoriasService.findAll().subscribe(
+      (response: Categorias[]) => {
+        this.categorias = response;
+        console.log(this.categorias);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

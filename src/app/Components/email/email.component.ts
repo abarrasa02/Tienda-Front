@@ -3,6 +3,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Email } from 'src/app/Classes/email';
 import { EmailService } from 'src/app/Service/email.spec';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',
@@ -14,13 +16,17 @@ export class EmailComponent implements OnInit {
   fileArchivo: Blob;
   selectedFiles: FileList;
 
-  constructor(private emailService: EmailService) { 
+  constructor(private emailService: EmailService, private spinner: NgxSpinnerService) { 
 
   }
  
 
   ngOnInit(): void {
-
+    this.spinner.show();
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 1000);
   }
 
   mostrarAlgo() {
