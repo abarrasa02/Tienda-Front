@@ -69,6 +69,7 @@
               <span class="content-name">Nombre</span>
             </label>
           </div>
+          
           <div class="form">
             <input type="text" ngModel name="precio" id="precio"
               autocomplete="off" required />
@@ -86,7 +87,7 @@
           <div>
             <button (click)="cerrar('add')" type="button" class="span">Cerrar</button>
             <button [disabled]="addForm.invalid" type="submit" class="span"
-              (click)="cerrar('add')">
+              (click)="cerrar('add')"><script>alert("Se ha añadido el producto")</script>
               Añadir
             </button>
           </div>
