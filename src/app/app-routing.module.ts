@@ -9,6 +9,7 @@ import { ProductosComponent } from './Components/productos/productos.component';
 import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotros.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
+
 const routes: Routes = [
   { path: 'categoria/all', component: CategoriasComponent },
   { path: 'detallePedidos/all', component: DetallePedidosComponent },

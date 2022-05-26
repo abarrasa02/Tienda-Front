@@ -28,6 +28,7 @@ import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotr
     CategoriasComponent,
     EmailComponent,
     SobreNosotrosComponent,
+   
     
 
 
@@ -39,10 +40,12 @@ import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotr
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
+    
   
   ],
   exports:[
-    NgxPaginationModule
+    NgxPaginationModule,
+    
     
   ],
   providers: [CategoriasService],

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Productos } from '../Classes/productos';
 import { Usuarios } from '../Classes/usuarios';
+import { CookieService } from "ngx-cookie-service";
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ export class UsuariosService {
 
   private usuariosUrl: string;
   productoUrl: any;
+   
   constructor(private http: HttpClient) {
     this.usuariosUrl = 'http://localhost:8080/usuarios'
    }
@@ -42,7 +45,8 @@ export class UsuariosService {
 
   public deleteUsuarios(id: number): Observable<Usuarios>{
 
-    return this.http.delete<Usuarios>(`${this.productoUrl}/delete/${id}`)
+    return this.http.delete<Usuarios>(`${this.usuariosUrl}/delete/${id}`)
 
   }
+
 }

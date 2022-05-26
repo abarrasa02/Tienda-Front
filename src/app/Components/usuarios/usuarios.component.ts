@@ -3,6 +3,11 @@ import { UsuariosService } from 'src/app/Service/usuarios.service';
 import { Usuarios } from 'src/app/Classes/usuarios';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+
+
 
 @Component({
   selector: 'app-usuarios',
@@ -18,11 +23,13 @@ export class UsuariosComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
+
   constructor(private usuariosService:UsuariosService) { }
 
   ngOnInit(): void {
     this.getUsuarios();
   }
+
   public getUsuarios(): void {
     this.usuariosService.findAll().subscribe(
       (response: Usuarios[]) => {
