@@ -6,6 +6,7 @@ import { DetallePedidosComponent } from './Components/detalle-pedidos/detalle-pe
 import { EmailComponent } from './Components/email/email.component';
 import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { ProductosComponent } from './Components/productos/productos.component';
+import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotros.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'productos/all', component: ProductosComponent },
   { path: 'usuarios/all', component: UsuariosComponent },
   {path: 'email', component: EmailComponent},
-  {path: 'productos/export', component:ProductosComponent}
+  {path: 'productos/export', component:ProductosComponent},
+  {path: 'sobrenosotros', component:SobreNosotrosComponent}
 ];
 const routerOptions: ExtraOptions = {
   useHash: false,

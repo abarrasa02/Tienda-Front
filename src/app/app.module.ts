@@ -14,6 +14,7 @@ import { CategoriasService } from './Service/categorias.service';
 import { EmailComponent } from './Components/email/email.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotros.component';
 
 
 
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetallePedidosComponent,
     CategoriasComponent,
     EmailComponent,
+    SobreNosotrosComponent,
     
 
 
