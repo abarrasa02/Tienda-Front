@@ -1,5 +1,5 @@
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { CategoriasService } from './Service/categorias.service';
 import { EmailComponent } from './Components/email/email.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotros.component';
-
 
 
 
@@ -40,7 +40,11 @@ import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotr
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
+<<<<<<< .mine
     
+=======
+    BrowserAnimationsModule
+>>>>>>> .theirs
   
   ],
   exports:[
@@ -48,6 +52,7 @@ import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotr
     
     
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [CategoriasService],
   bootstrap: [AppComponent]
 })

@@ -6,7 +6,6 @@
   <div class="card addCard">
     <button (click)="download()" >Excel<i class="fa fa-trash"></i></button>
     <div class="box addBox" (click)="abrir(null, 'add')">
-   
       <i class="fa-solid fa-plus fa-3x"></i>
     </div>
   </div>
@@ -17,16 +16,15 @@
       <div>
         <img src="https://thumb.pccomponentes.com/w-220-220/articles/13/132145/dpp-2640.jpg" alt="">
         <div class="content">
-
           <h3>{{producto.nombre}}</h3>
           <p>{{precioRebajado(producto.precio, producto.rebaja)}}€
             <span><del>{{producto.precio}}</del></span>
-            <span id="rebaja">{{producto.rebaja}}%</span>
+            <span id="rebaja1">{{producto.rebaja}}%</span>
           </p>
           <div>
-          <a (click)="abrir(producto,'eliminar')"class="deleteButton"><i class="fa fa-pen"></i></a>
-          <a (click)="abrir(producto,'update')" class="updateButton"><i class="fa fa-trash"></i></a>
-          
+          <a (click)="abrir(producto,'update')"class="updateButton"><i class="fa fa-pen"></i></a>
+          <a (click)="abrir(producto,'eliminar')" class="deleteButton"><i class="fa fa-trash"></i></a>
+
           </div>
           <a href="#">Comprar</a>
 
@@ -65,7 +63,7 @@
           <div class="form">
             <input type="text" ngModel name="nombre" id="nombre"
               autocomplete="off" required />
-            <label for="nombre " class="label-name">
+            <label for="nombre" class="label-name">
               <span class="content-name">Nombre</span>
             </label>
           </div>
@@ -78,12 +76,29 @@
             </label>
           </div>
           <div class="form">
-            <input type="text" ngModel name="rebaja"
+            <input type="text" ngModel name="rebaja" id="none"
               autocomplete="off" required />
             <label for="rebaja" class="label-name">
               <span class="content-name">Rebaja</span>
             </label>
           </div>
+          <div class="form">
+            <input type="text" ngModel name="descripcion" id="descripcion"
+              autocomplete="off" required />
+            <label for="descripcion" class="label-name">
+              <span class="content-name">Descripción</span>
+            </label>
+          </div>
+          <div class="form" id="divCategoria">
+            <label for="categoriasId" class="">
+              <span class="">Categoria</span>
+            </label>
+            <br>
+            <select name="categoriasId" ngModel="{{categoria?.id}}" id="categoriasId">
+              <option *ngFor="let categoria of categorias" id="autor">{{categoria.id}}</option>
+            </select>
+          </div>
+       
           <div>
             <button (click)="cerrar('add')" type="button" class="span">Cerrar</button>
             <button [disabled]="addForm.invalid" type="submit" class="span"
@@ -150,5 +165,5 @@
                 screenReaderCurrentLabel="You're on page">
   </pagination-controls>
 </footer>
-    
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-circus" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
   

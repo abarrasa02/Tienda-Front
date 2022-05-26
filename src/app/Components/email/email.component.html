@@ -1,3 +1,4 @@
+<<<<<<< .mine
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +20,66 @@
         <div class="form-group" >
             <label for="mensaje">Mensaje</label>
             <textarea name="mensaje" type="text"  ngModel  id="mensaje" class="form-control" [rows]="8"></textarea>
+=======
+
+
+      <div id="id01" class="">
+        <div class="modal-body">
+          <div class="modal-head">
+            <h2>Enviar email</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
           </div>
-          <div>
-            <label for="archivo">Adjuntar</label>
-            <input type="file" [ngModel] (change)="selectFile($event)">
+          <div class="modal-body-content">
+            <form  #sendForm="ngForm" (ngSubmit)="sendMail(sendForm)">
+              <div class="form">
+                <input type="text" ngModel name="email" id="email"
+                  autocomplete="off" required />
+                <label for="email " class="label-name">
+                  <span class="content-name">Email</span>
+                </label>
+              </div>
+              <div class="form">
+                <input type="text" ngModel name="asunto" id="asunto"
+                  autocomplete="off" required />
+                <label for="asunto" class="label-name">
+                  <span class="content-name">Asunto</span>
+                </label>
+              </div>
+              <div class="form" id="textDiv">
+                <textarea type="text" ngModel name="mensaje" id="mensaje"
+                  autocomplete="off" required class="inp" maxlength="500"></textarea>
+                <label for="mensaje" class="label-name">
+                  <span class="">Mensaje</span>
+                </label>
+              </div>
+              <div class="form" >
+                <input type="file" ngModel name="asunto" id="asunto" [ngModel] (change)="selectFile($event)" />
+                <label for="asunto" class="label-name" >
+                  <span class="content-name">Adjunta un archivo</span>
+                </label>
+              </div>
+              <div>
+                <button class="span"
+                [disabled]="sendForm.invalid" type="submit">
+                  Añadir
+                </button>
+              </div>
+            </form>
           </div>
-        <button  [disabled]="sendForm.invalid" type="submit" >Enviar</button>
-      </form>
-</body>
-</html>
+        </div>
+      </div>

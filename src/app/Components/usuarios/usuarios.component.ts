@@ -3,9 +3,15 @@ import { UsuariosService } from 'src/app/Service/usuarios.service';
 import { Usuarios } from 'src/app/Classes/usuarios';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+<<<<<<< .mine
 import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+=======
+import { NgxSpinnerService } from 'ngx-spinner';
+
+
+>>>>>>> .theirs
 
 
 
@@ -23,11 +29,22 @@ export class UsuariosComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
+<<<<<<< .mine
 
   constructor(private usuariosService:UsuariosService) { }
+=======
+  constructor(private usuariosService:UsuariosService, private spinner: NgxSpinnerService) { }
+
+>>>>>>> .theirs
 
   ngOnInit(): void {
     this.getUsuarios();
+    this.spinner.show();
+
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 1000);
   }
 
   public getUsuarios(): void {

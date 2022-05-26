@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DetallePedidos } from 'src/app/Classes/detalle-pedidos';
 import { DetallePedidosService } from 'src/app/Service/detalle-pedidos.service';
 
@@ -18,10 +19,16 @@ export class DetallePedidosComponent implements OnInit {
   count = 0;
   pageSize = 4;
   pageSizes = [3, 6, 9];
-  constructor(private detallePedidosService: DetallePedidosService) { }
+  constructor(private detallePedidosService: DetallePedidosService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getDetallePedidos();
+    this.spinner.show();
+
+    setTimeout(() => {
+     
+      this.spinner.hide();
+  }, 1000);
   }
   public getDetallePedidos(): void {
     this.detallePedidosService.findAll().subscribe(
