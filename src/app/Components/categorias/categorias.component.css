@@ -183,3 +183,8 @@ position: relative;
     position: sticky;
     left: 10px;
   }
+  @media(min-width: 800px){
+    #table{
+        width: 50em;
+    }
+  }

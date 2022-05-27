@@ -24,7 +24,7 @@
   top: 1px;
   width: 100%;
   z-index: 2;
-  padding: 10px 0;
+  padding: 0px 0;
   transition: all 0.3s ease;
   margin: 0;
 }
@@ -141,7 +141,13 @@
   }
 }
 @media (max-width: 380px) {
-  .navbar .logo a{
+  .navbar .logo .a  {
     font-size: 27px;
   }
+  
+}
+img{
+  height:60px;
+  width: 80px;
+  cursor: pointer;
 }

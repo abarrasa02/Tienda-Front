@@ -40,11 +40,7 @@ import { SobreNosotrosComponent } from './Components/sobre-nosotros/sobre-nosotr
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
-<<<<<<< .mine
-    
-=======
     BrowserAnimationsModule
->>>>>>> .theirs
   
   ],
   exports:[
