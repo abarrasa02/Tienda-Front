@@ -46,6 +46,8 @@ export class ProductosService {
     return this.http.delete<Productos>(`${this.productoUrl}/delete/${id}`)
 
   }
+  
+
   public downloadFile(): any {
 
     return this.http.get(`${this.download}/productos/export`, {responseType: 'blob'});

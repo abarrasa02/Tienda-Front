@@ -16,7 +16,7 @@
           currentPage: page,
           totalItems: count}">
           <td class="items">{{pedido.id}}</td>
-          <td class="items">{{pedido.fecha}}</td>
+          <td class="items">{{pedido.fecha.substring(0,10)}}</td>
           <td class="items icon">{{pedido.usuarioId}}</td>
           <td class="items">
             <button class="span" (click)="abrir(pedido, 'eliminar')">Eliminar</button>
@@ -37,7 +37,7 @@
         <form #addForm="ngForm" (ngSubmit)="AddPedidos(addForm)">
           <div class="form">
             <input type="text" ngModel name="fecha" id="fecha"
-              autocomplete="off" required />
+              autocomplete="off" required onfocus="(this.type='date')" onfocusout="(this.type='text')" />
             <label for="fecha"class="label-name">
               <span class="content-name">Fecha</span>
             </label>
@@ -54,6 +54,20 @@
               autocomplete="off" required />
             <label for="usuarioId" class="label-name">
               <span class="content-name">UsuarioId</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="id" id="id"
+              autocomplete="off" required />
+            <label for="id" class="label-name">
+              <span class="content-name">Id Pedido</span>
+            </label>
+          </div>
+          <div class="form">
+            <input type="text" ngModel name="productoId" id="prodcutoId"
+              autocomplete="off" required />
+            <label for="productoId" class="label-name">
+              <span class="content-name">ProductoId</span>
             </label>
           </div>
           <div>

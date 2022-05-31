@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    font-size: 14px;
+    flex-direction:row;
+    margin-top: 20px;
+}
+img{
+    width: 300px;
+    margin: 10px;
+    border-radius: 15px;
+}
+.mejor{
+    position: absolute;
+    top: 300px;
+    left: 10px;
+}
